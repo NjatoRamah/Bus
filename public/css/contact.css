@@ -1,0 +1,1415 @@
+@font-face {
+  font-family: butler;
+  src: url("../font/Butler_Regular.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: butler;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: butler;
+  position: relative;
+  z-index: 0;
+}
+body.mis:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+header .logo-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+header .logo-div .logo {
+  font-weight: bold;
+  color: black;
+  font-size: 2.5rem;
+  padding: 3% 15% 0% 0%;
+  margin: 0 0 0 10%;
+  cursor: pointer;
+  font-family: edosz;
+}
+header .logo-div .logo .brouse {
+  color: orange;
+  font-size: 20px;
+}
+header .logo-div .con {
+  margin: 3% 0 0 30%;
+}
+header .logo-div .con .connect {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  font-weight: bold;
+  width: 200Px;
+  height: auto;
+  padding: 5px 20px 5px 20px;
+  text-align: right;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+  transition: 1s;
+}
+header .logo-div .con .connect:hover {
+  transition: 1s;
+  background: orange;
+}
+header .logo-div .nav .nav1 {
+  width: 20px;
+  height: 2px;
+  background: black;
+  margin: 2px 0 0 0;
+  display: none;
+}
+header .nav-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  list-style-type: none;
+  color: blue;
+  margin: 3% 0 0 0;
+  padding: 1% 2% 1% 2%;
+  box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+  border-radius: 10px;
+  font-family: butler;
+}
+header .nav-logo .nav-item, header .nav-logo .nav-link {
+  margin: 0 0 0px 10px;
+  padding: 6px 5px 6px 0px;
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  font-family: butler;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.5s;
+}
+header .nav-logo .nav-item:hover {
+  background: #ffb733;
+  padding: 6px 5px 6px 0px;
+  border-radius: 10px;
+}
+header .nav-logo .menu {
+  width: auto;
+  height: auto;
+  background: #ffb733;
+  margin: 5px 0 0 10px;
+  padding: 0px 4px 0px 4px;
+}
+header .nav-logo .sous-menu .menu {
+  position: fixed;
+  display: none;
+  transition: 2s;
+  border-radius: 5px;
+  padding: 0px 2px 0px 2px;
+  font-family: butler;
+}
+header .nav-logo .sous-menu:hover .menu {
+  display: block;
+}
+header .nav-logo .nav-item1 {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  margin: 5% 0px 5% 0px;
+  padding: 5px 0px 5px 0px;
+  text-align: start;
+  transition: 1s;
+}
+header .nav-logo .nav-item1:hover .nav-link {
+  transition: 1s;
+  border-bottom: 2px solid black;
+}
+header .nav-small {
+  display: none;
+  background: aliceblue;
+  padding: 1% 3% 1% 3%;
+  transform: translate(-100%);
+}
+header .nav-small .active {
+  transform: translate(0%);
+}
+header .nav-small .smallresp .nav-item1, header .nav-small .smallresp .nav-link1 {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  margin: 8% 0 0 0;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: butler;
+}
+header .nav-small .smallresp .nav-link1:hover {
+  border-bottom: 2px solid orange;
+  transition: 0.5s;
+}
+
+.sec1 {
+  background: url("../image/toyota.jpg"), rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+  margin: 2% 0% 0% 0%;
+}
+.sec1 .title-sec {
+  text-align: center;
+  padding: 6% 0% 0% 0%;
+  color: white;
+  font-size: 2.5rem;
+  animation: anim 1s linear 3s;
+}
+@keyframes anim {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.sec2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  margin: 0 0 0 2%;
+}
+.sec2 .com {
+  font-size: 1.2rem;
+  color: orange;
+  margin: 2% 0 2% 0;
+}
+.sec2 .quest {
+  font-size: 2.5rem;
+  margin: 0 0 2% 0;
+}
+.sec2 .cont {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.sec3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  margin: 0 0 0 5%;
+}
+.sec3 .contcat {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 2% 0 2% 0;
+}
+.sec3 .iconcon {
+  font-size: 2.5rem;
+  color: orange;
+  text-align: center;
+  padding: 20% 0 5% 0;
+}
+.sec3 .add {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2% 0 2% 0;
+}
+.sec3 .pAdd {
+  padding: 0 0 20% 0;
+}
+
+.sec4 {
+  width: 90%;
+  height: auto;
+  margin: 0 0 5% 5%;
+  text-align: center;
+}
+.sec4 .formco {
+  width: 100%;
+  height: auto;
+  background: #ffc966;
+  padding: 4% 0 4% 0;
+  border-radius: 10px;
+}
+.sec4 .formco form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.sec4 .formco form input {
+  width: 300px;
+  height: 35px;
+  margin: 5% 0 2% 0;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+.sec4 .formco form button {
+  width: 300px;
+  height: 40px;
+  margin: 5% 0 2% 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
+  background: orange;
+  box-shadow: 0 0 3px 0 rgb(212, 138, 1);
+  transition: 1s;
+}
+.sec4 .formco form button:hover {
+  background: white;
+  color: orange;
+  cursor: pointer;
+}
+.sec4 .formco form textarea {
+  width: 500px;
+  height: 200px;
+  margin: 5% 0 0 0;
+  padding: 2% 0 2% 3%;
+  border-radius: 10px;
+  border: none;
+  outline: inherit;
+  resize: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background: #1a1a1a;
+  padding: 5% 0 3% 0;
+}
+footer .secfoot {
+  width: 250px;
+  height: 300px;
+}
+footer .secfoot .titlefoot {
+  color: white;
+}
+footer .secfoot .pfoot {
+  font-size: 1rem;
+  color: white;
+  margin: 10% 0 0 0;
+}
+footer .secfoot .nav-foot {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  margin: 0% 0 0 0;
+  padding: 5% 0 0 0;
+  font-size: 1rem;
+}
+footer .secfoot .link-foot {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  padding: 5% 0 0 0;
+  transition: 0.5s;
+}
+footer .secfoot .link-foot:hover {
+  color: orange;
+  transition: 0.5s;
+}
+footer .secfoot .mail {
+  width: 200px;
+  height: 30px;
+  margin: 10% 0 0 0;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 20% 0 10%;
+  box-shadow: 0 0 4px 0 rgb(192, 192, 192);
+  border: none;
+}
+footer .secfoot .sub {
+  margin: 0 0 0 -15%;
+  border: none;
+  background: white;
+  cursor: pointer;
+}
+footer .secfoot .sub:hover {
+  color: orange;
+}
+footer .secfoot .fontfoot {
+  color: orange;
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+  header .logo-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  header .logo-div .logo {
+    font-weight: bold;
+    color: black;
+    font-size: 2.5rem;
+    padding: 3% 15% 0% 0%;
+    margin: 0 0 0 5%;
+    cursor: pointer;
+    font-family: edosz;
+  }
+  header .logo-div .logo .brouse {
+    color: orange;
+    font-size: 20px;
+  }
+  header .logo-div .con {
+    margin: 3% 0 0 30%;
+  }
+  header .logo-div .con .connect {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-weight: bold;
+    width: 200Px;
+    height: auto;
+    padding: 5px 20px 5px 20px;
+    text-align: right;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+    transition: 1s;
+  }
+  header .logo-div .con .connect:hover {
+    transition: 1s;
+    background: orange;
+  }
+  header .nav-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    color: blue;
+    margin: 3% 0 0 0;
+    padding: 1% 2% 1% 2%;
+    box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+    border-radius: 10px;
+  }
+  header .nav-logo .nav-item, header .nav-logo .nav-link {
+    margin: 0 0 0px 10px;
+    padding: 6px 5px 6px 0px;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-family: Helvetica;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 1s;
+  }
+  header .nav-logo .nav-item:hover {
+    background: #ffb733;
+    padding: 6px 5px 6px 0px;
+    border-radius: 10px;
+  }
+  header .nav-logo .menu {
+    width: auto;
+    height: auto;
+    background: #ffb733;
+    margin: 5px 0 0 10px;
+    padding: 0px 4px 0px 4px;
+  }
+  header .nav-logo .sous-menu .menu {
+    position: fixed;
+    display: none;
+    transition: 2s;
+    border-radius: 5px;
+    padding: 0px 2px 0px 2px;
+  }
+  header .nav-logo .sous-menu:hover .menu {
+    display: block;
+  }
+  header .nav-logo .nav-item1 {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    margin: 5% 0px 5% 0px;
+    padding: 5px 0px 5px 0px;
+    text-align: start;
+    transition: 1s;
+  }
+  header .nav-logo .nav-item1:hover .nav-link {
+    transition: 1s;
+    border-bottom: 2px solid black;
+  }
+  .sec1 {
+    background: url("../image/toyota.jpg"), rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    margin: 2% 0% 0% 0%;
+  }
+  .sec1 .title-sec {
+    text-align: center;
+    padding: 6% 0% 0% 0%;
+    color: white;
+    font-size: 2.5rem;
+    animation: anim 1s linear 3s;
+  }
+  @keyframes anim {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  .sec2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 0 0 0 2%;
+  }
+  .sec2 .com {
+    font-size: 1.2rem;
+    color: orange;
+    margin: 2% 0 2% 0;
+  }
+  .sec2 .quest {
+    font-size: 2.5rem;
+    margin: 0 0 2% 0;
+  }
+  .sec2 .cont {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .sec3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 0 0 0 5%;
+  }
+  .sec3 .contcat {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 2% 0 2% 0;
+  }
+  .sec3 .iconcon {
+    font-size: 2.5rem;
+    color: orange;
+    text-align: center;
+    padding: 20% 0 5% 0;
+  }
+  .sec3 .add {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2% 0 2% 0;
+  }
+  .sec3 .pAdd {
+    padding: 0 0 20% 0;
+  }
+  .sec4 {
+    width: 90%;
+    height: auto;
+    margin: 0 0 5% 5%;
+    text-align: center;
+  }
+  .sec4 .formco {
+    width: 100%;
+    height: auto;
+    background: #ffc966;
+    padding: 4% 0 4% 0;
+    border-radius: 10px;
+  }
+  .sec4 .formco form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .sec4 .formco form input {
+    width: 300px;
+    height: 35px;
+    margin: 5% 0 2% 0;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+  }
+  .sec4 .formco form button {
+    width: 300px;
+    height: 40px;
+    margin: 5% 0 2% 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    background: orange;
+    box-shadow: 0 0 3px 0 rgb(212, 138, 1);
+    transition: 1s;
+  }
+  .sec4 .formco form button:hover {
+    background: white;
+    color: orange;
+    cursor: pointer;
+  }
+  .sec4 .formco form textarea {
+    width: 500px;
+    height: 200px;
+    margin: 5% 0 0 0;
+    padding: 2% 0 2% 3%;
+    border-radius: 10px;
+    border: none;
+    outline: inherit;
+    resize: none;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background: #1a1a1a;
+    padding: 5% 0 3% 0;
+  }
+  footer .secfoot {
+    width: 200px;
+    height: 300px;
+  }
+  footer .secfoot .titlefoot {
+    color: white;
+  }
+  footer .secfoot .pfoot {
+    font-size: 1rem;
+    color: white;
+    margin: 10% 0 0 0;
+  }
+  footer .secfoot .nav-foot {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    margin: 0% 0 0 0;
+    padding: 5% 0 0 0;
+    font-size: 1rem;
+  }
+  footer .secfoot .link-foot {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    padding: 5% 0 0 0;
+    transition: 0.5s;
+  }
+  footer .secfoot .link-foot:hover {
+    color: orange;
+    transition: 0.5s;
+  }
+  footer .secfoot .mail {
+    width: 200px;
+    height: 30px;
+    margin: 10% 0 0 0;
+    border-radius: 10px;
+    outline: none;
+    padding: 0 20% 0 10%;
+    box-shadow: 0 0 4px 0 rgb(192, 192, 192);
+  }
+  footer .secfoot .sub {
+    margin: 27px 0 0 1%;
+    border: none;
+    background: orange;
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+  }
+  footer .secfoot .sub:hover {
+    color: rgb(255, 255, 255);
+  }
+  footer .secfoot .fontfoot {
+    color: orange;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+  header .logo-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  header .logo-div .logo {
+    font-weight: bold;
+    color: black;
+    font-size: 2rem;
+    padding: 3% 15% 0% 0%;
+    margin: 0 0 0 0%;
+    cursor: pointer;
+    font-family: edosz;
+  }
+  header .logo-div .logo .brouse {
+    color: orange;
+    font-size: 20px;
+  }
+  header .logo-div .con {
+    margin: 3% 0 0 20%;
+  }
+  header .logo-div .con .connect {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-weight: bold;
+    width: 200Px;
+    height: auto;
+    padding: 5px 20px 5px 20px;
+    text-align: right;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+    transition: 1s;
+  }
+  header .logo-div .con .connect:hover {
+    transition: 1s;
+    background: orange;
+  }
+  header .nav-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    color: blue;
+    margin: 3% 0 0 0;
+    padding: 1% 2% 1% 2%;
+    box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+    border-radius: 10px;
+  }
+  header .nav-logo .nav-item, header .nav-logo .nav-link {
+    margin: 0 0 0px 10px;
+    padding: 6px 5px 6px 0px;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-family: Helvetica;
+    font-size: 0.6rem;
+    font-weight: bold;
+    transition: 1s;
+  }
+  header .nav-logo .nav-item:hover {
+    background: #ffb733;
+    padding: 6px 5px 6px 0px;
+    border-radius: 10px;
+  }
+  header .nav-logo .menu {
+    width: auto;
+    height: auto;
+    background: #ffb733;
+    margin: 5px 0 0 10px;
+    padding: 0px 4px 0px 4px;
+  }
+  header .nav-logo .sous-menu .menu {
+    position: fixed;
+    display: none;
+    transition: 2s;
+    border-radius: 5px;
+    padding: 0px 2px 0px 2px;
+  }
+  header .nav-logo .sous-menu:hover .menu {
+    display: block;
+  }
+  header .nav-logo .nav-item1 {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    margin: 5% 0px 5% 0px;
+    padding: 5px 0px 5px 0px;
+    text-align: start;
+    transition: 1s;
+  }
+  header .nav-logo .nav-item1:hover .nav-link {
+    transition: 1s;
+    border-bottom: 2px solid black;
+  }
+  .connexion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    height: 350px;
+    margin: 10% 0 0 30%;
+    padding: 0% 0 10% 0;
+    position: absolute;
+    top: 0;
+    background: orange;
+    border-radius: 10px;
+    z-index: 1;
+    display: none;
+    transition: 5s;
+  }
+  .connexion.mis {
+    display: block;
+    position: fixed;
+  }
+  .connexion .divikisa {
+    margin: 0 0 2% 94%;
+  }
+  .connexion .divikisa .ikisa {
+    font-size: 1.7rem;
+  }
+  .connexion .divikisa .ikisa:hover {
+    color: red;
+    cursor: pointer;
+  }
+  .connexion .insco {
+    margin: 0 0 10% 0;
+    text-align: center;
+    color: white;
+  }
+  .connexion .social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .connexion .social .face {
+    width: 140px;
+    height: 30px;
+    margin: 0 1.8% 0 1.8%;
+    padding: 1% 0 2% 0;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+  }
+  .connexion .social .face a {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    background: white;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .connexion .seco .formulaire {
+    text-align: center;
+    padding: 0% 0 0 0;
+  }
+  .connexion .seco .formulaire input {
+    width: 300Px;
+    height: 30px;
+    margin: 5% 0 0 0;
+    text-align: center;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+  }
+  .connexion .seco .formulaire button {
+    width: 300Px;
+    height: 30px;
+    margin: 5% 0 10% 0;
+    border-radius: 10px;
+    background: blue;
+    border: none;
+    font-weight: bold;
+    color: white;
+  }
+  .sec1 {
+    background: url("../image/toyota.jpg"), rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    margin: 2% 0% 0% 0%;
+  }
+  .sec1 .title-sec {
+    text-align: center;
+    padding: 6% 0% 0% 0%;
+    color: white;
+    font-size: 2.5rem;
+    animation: anim 1s linear 3s;
+  }
+  @keyframes anim {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  .sec2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 0 0 0 2%;
+  }
+  .sec2 .com {
+    font-size: 1.2rem;
+    color: orange;
+    margin: 2% 0 2% 0;
+  }
+  .sec2 .quest {
+    font-size: 2.5rem;
+    margin: 0 0 2% 0;
+  }
+  .sec2 .cont {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .sec3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 0 0 0 5%;
+  }
+  .sec3 .contcat {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 2% 0 2% 0;
+  }
+  .sec3 .iconcon {
+    font-size: 2.5rem;
+    color: orange;
+    text-align: center;
+    padding: 20% 0 5% 0;
+  }
+  .sec3 .add {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2% 0 2% 0;
+  }
+  .sec3 .pAdd {
+    padding: 0 0 20% 0;
+  }
+  .sec4 {
+    width: 90%;
+    height: auto;
+    margin: 0 0 5% 5%;
+    text-align: center;
+  }
+  .sec4 .formco {
+    width: 100%;
+    height: auto;
+    background: #ffc966;
+    padding: 4% 0 4% 0;
+    border-radius: 10px;
+  }
+  .sec4 .formco form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .sec4 .formco form input {
+    width: 250px;
+    height: 35px;
+    margin: 5% 0 2% 5%;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+  }
+  .sec4 .formco form button {
+    width: 250px;
+    height: 40px;
+    margin: 5% 0 2% 5%;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    background: orange;
+    box-shadow: 0 0 3px 0 rgb(212, 138, 1);
+    transition: 1s;
+  }
+  .sec4 .formco form button:hover {
+    background: white;
+    color: orange;
+    cursor: pointer;
+  }
+  .sec4 .formco form textarea {
+    width: 300px;
+    height: 200px;
+    margin: 5% 0 0 0;
+    padding: 2% 0 2% 3%;
+    border-radius: 10px;
+    border: none;
+    outline: inherit;
+    resize: none;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background: #1a1a1a;
+    padding: 5% 0 3% 0;
+  }
+  footer .secfoot {
+    width: 150px;
+    height: 230px;
+  }
+  footer .secfoot .titlefoot {
+    color: white;
+    font-size: 1.2rem;
+  }
+  footer .secfoot .pfoot {
+    font-size: 1rem;
+    color: white;
+    margin: 10% 0 0 0;
+  }
+  footer .secfoot .nav-foot {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    margin: 0% 0 0 0;
+    padding: 5% 0 0 0;
+    font-size: 1rem;
+  }
+  footer .secfoot .link-foot {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    padding: 5% 0 0 0;
+    transition: 0.5s;
+  }
+  footer .secfoot .link-foot:hover {
+    color: orange;
+    transition: 0.5s;
+  }
+  footer .secfoot .mail {
+    width: 140px;
+    height: 25px;
+    margin: 10% 0 0 0;
+    border-radius: 10px;
+    outline: none;
+    padding: 0 20% 0 10%;
+    box-shadow: 0 0 4px 0 rgb(192, 192, 192);
+  }
+  footer .secfoot .sub {
+    margin: 27px 0 0 1%;
+    border: none;
+    background: orange;
+    cursor: pointer;
+    width: 140px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+  }
+  footer .secfoot .sub:hover {
+    color: rgb(255, 255, 255);
+  }
+  footer .secfoot .fontfoot {
+    color: orange;
+  }
+}
+@media screen and (max-width: 425px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    margin: 0 0 0 0;
+  }
+  header .logo-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  header .logo-div .logo {
+    font-weight: bold;
+    color: black;
+    font-size: 2rem;
+    padding: 3% 15% 0% 0%;
+    margin: 0 0 0 0%;
+    cursor: pointer;
+    font-family: edosz;
+  }
+  header .logo-div .logo .brouse {
+    color: orange;
+    font-size: 20px;
+  }
+  header .logo-div .con {
+    margin: 3% 0 0 20%;
+    display: none;
+  }
+  header .logo-div .con .connect {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-weight: bold;
+    width: 200Px;
+    height: auto;
+    padding: 5px 20px 5px 20px;
+    text-align: right;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+    transition: 1s;
+  }
+  header .logo-div .con .connect:hover {
+    transition: 1s;
+    background: orange;
+  }
+  header .logo-div .nav .nav1 {
+    width: 20px;
+    height: 2px;
+    background: black;
+    margin: 2px 0 0 0;
+    display: block;
+  }
+  header .nav-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    color: blue;
+    margin: 3% 0 0 0;
+    padding: 1% 2% 1% 2%;
+    box-shadow: 0 0 3px 0 rgb(196, 196, 196);
+    border-radius: 10px;
+    display: none;
+  }
+  header .nav-logo .nav-item, header .nav-logo .nav-link {
+    margin: 0 0 0px 10px;
+    padding: 6px 5px 6px 0px;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-family: Helvetica;
+    font-size: 0.6rem;
+    font-weight: bold;
+    transition: 1s;
+  }
+  header .nav-logo .nav-item:hover {
+    background: #ffb733;
+    padding: 6px 5px 6px 0px;
+    border-radius: 10px;
+  }
+  header .nav-logo .menu {
+    width: auto;
+    height: auto;
+    background: #ffb733;
+    margin: 5px 0 0 10px;
+    padding: 0px 4px 0px 4px;
+  }
+  header .nav-logo .sous-menu .menu {
+    position: fixed;
+    display: none;
+    transition: 2s;
+    border-radius: 5px;
+    padding: 0px 2px 0px 2px;
+  }
+  header .nav-logo .sous-menu:hover .menu {
+    display: block;
+  }
+  header .nav-logo .nav-item1 {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    margin: 5% 0px 5% 0px;
+    padding: 5px 0px 5px 0px;
+    text-align: start;
+    transition: 1s;
+  }
+  header .nav-logo .nav-item1:hover .nav-link {
+    transition: 1s;
+    border-bottom: 2px solid black;
+  }
+  header .nav-small {
+    display: block;
+    background: #ffb733;
+    padding: 1% 3% 1% 3%;
+    transform: translateX(150%);
+    transition: 0.5s ease;
+    border-radius: 10px;
+  }
+  header .nav-small.active {
+    transform: translateX(41%);
+  }
+  header .nav-small .smallresp .nav-item1, header .nav-small .smallresp .nav-link1 {
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    margin: 8% 0 0 0;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  header .nav-small .smallresp .nav-link1:hover {
+    border-bottom: 2px solid rgb(255, 255, 255);
+    transition: 0.5s;
+  }
+  .sec1 {
+    background: url("../image/toyota.jpg"), rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    margin: -100% 0% 0 0%;
+  }
+  .sec1 .title-sec {
+    text-align: center;
+    padding: 20% 0% 0% 0%;
+    color: white;
+    font-size: 2.5rem;
+    animation: anim 1s linear 3s;
+  }
+  @keyframes anim {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  .sec2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 0 0 0 2%;
+  }
+  .sec2 .com {
+    font-size: 1.2rem;
+    color: orange;
+    margin: 5% 0 4% 0;
+    font-family: butler;
+  }
+  .sec2 .quest {
+    font-size: 2.5rem;
+    margin: 0 0 2% 0;
+  }
+  .sec2 .cont {
+    text-align: left;
+    font-size: 1rem;
+    margin: 0 0 0 10%;
+  }
+  .sec3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin: 0 0 0 5%;
+  }
+  .sec3 .contcat {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 1% 0 1% 0;
+  }
+  .sec3 .iconcon {
+    font-size: 2.5rem;
+    color: orange;
+    text-align: center;
+    padding: 20% 0 5% 0;
+  }
+  .sec3 .add {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2% 0 2% 0;
+  }
+  .sec3 .pAdd {
+    padding: 0 0 20% 0;
+  }
+  .sec4 {
+    width: 90%;
+    height: auto;
+    margin: 0 0 5% 5%;
+    text-align: center;
+  }
+  .sec4 .formco {
+    width: 100%;
+    height: auto;
+    background: #ffc966;
+    padding: 4% 0 4% 0;
+    border-radius: 10px;
+  }
+  .sec4 .formco form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .sec4 .formco form input {
+    width: 300px;
+    height: 35px;
+    margin: 5% 0 2% 0;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+  }
+  .sec4 .formco form button {
+    width: 300px;
+    height: 40px;
+    margin: 5% 0 2% 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    background: orange;
+    box-shadow: 0 0 3px 0 rgb(212, 138, 1);
+    transition: 1s;
+  }
+  .sec4 .formco form button:hover {
+    background: white;
+    color: orange;
+    cursor: pointer;
+  }
+  .sec4 .formco form textarea {
+    width: 300px;
+    height: 200px;
+    margin: 5% 0 0 0;
+    padding: 2% 0 5% 3%;
+    border-radius: 10px;
+    border: none;
+    outline: inherit;
+    resize: none;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background: #1a1a1a;
+    padding: 5% 0 3% 0;
+  }
+  footer .secfoot {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 10% 0 0 0;
+    padding: 0 0 5% 0;
+    border-bottom: 2px solid grey;
+  }
+  footer .secfoot .titlefoot {
+    color: white;
+    font-size: 1.5rem;
+  }
+  footer .secfoot .pfoot {
+    font-size: 1rem;
+    color: white;
+    margin: 10% 0 0 0;
+  }
+  footer .secfoot .nav-foot {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    margin: 0% 0 0 0;
+    padding: 2% 0 0 0;
+    font-size: 1rem;
+  }
+  footer .secfoot .link-foot {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    padding: 5% 0 0 0;
+    transition: 0.5s;
+  }
+  footer .secfoot .link-foot:hover {
+    color: orange;
+    transition: 0.5s;
+  }
+  footer .secfoot .mail {
+    width: 140px;
+    height: 25px;
+    margin: 10% 0 0 0;
+    border-radius: 10px;
+    outline: none;
+    padding: 0 20% 0 10%;
+    box-shadow: 0 0 4px 0 rgb(192, 192, 192);
+    border: none;
+  }
+  footer .secfoot .sub {
+    margin: 30px 0 0 1%;
+    border: none;
+    background: orange;
+    cursor: pointer;
+    width: 140px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+  }
+  footer .secfoot .sub:hover {
+    color: rgb(255, 255, 255);
+  }
+  footer .secfoot .fontfoot {
+    color: orange;
+  }
+}
+
+/*# sourceMappingURL=contact.css.map */

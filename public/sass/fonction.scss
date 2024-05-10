@@ -1,0 +1,39 @@
+@import 'variable';
+
+@mixin flex($flex,$fd,$jct,$al){
+    display: $flex;
+    flex-direction: $fd;
+    justify-content: $jct;
+    align-items: $al;
+}
+@mixin taille($w,$h){
+    width: $w;
+    height: $h;
+}
+
+@mixin bgimg($image,$rgba,$mode){
+    background: url($image), $rgba;
+    background-blend-mode: $mode;
+}
+@mixin bgcol($col){
+    background: $col;
+}
+@mixin margin($mt,$mr,$mb,$ml){
+    margin:$mt $mr $mb $ml;
+}
+@mixin padding($pt,$pr,$pb,$pl){
+    padding:$pt $pr $pb $pl;
+}
+@mixin texte($text,$lstp,$col){
+    text-decoration: $text;
+    list-style-type: $lstp;
+    color: $col;
+}
+@mixin pos($pos,$top,$left){
+    position: $pos;
+    top:$top;
+    left:$left;
+}
+@mixin bordr($br){
+    border-radius: $br;
+}

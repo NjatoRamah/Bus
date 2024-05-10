@@ -1,0 +1,2682 @@
+@import 'variable';
+@import 'fonction';
+@font-face {
+    font-family:butler;
+    src: url('../font/Butler_Regular.otf');
+}
+// :root{
+//     --steps:11;
+//     --typing-duration:1.2s;
+//     --caret-blink-duration:0.5s;
+
+//antsoina an anaty class
+    // max-width: 0;
+    // animation:typing var(--typing-duration)
+    // steps(var(--steps)) forwards,
+    // caret var(--caret-blink-duration) steps(1) infinite;
+    // overflow:hidden; 
+    // color: aqua;
+
+    // ny animation aminy
+// @keyframes typing{
+//     to{
+//         max-width: calc(var(--steps) * 1ch);
+//     }
+// }
+// @keyframes caret{
+//     50%{
+//         border-right-color: currentColor;
+//     }
+// }
+// }
+
+*{
+    #{$marg}:0;
+    #{$pad}:0;
+    box-sizing: border-box;
+    font-family: butler;
+    font-weight: 500;
+    font-style: normal;
+}
+body {
+    font-family:butler;
+    #{$pos}:relative;
+    z-index: 0;
+    &.mis{
+        &:before{
+            content:" ";
+            #{$pos}:absolute;
+            #{$top}:0;
+            @include taille(100%,100%);
+            z-index: 300;
+            backdrop-filter: blur(10px);
+            overflow:hidden;
+        }
+    }
+}
+
+header{
+    @include flex(flex,column,space-around,center);
+    @include taille(auto,auto);
+
+    .logo-div{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+
+        .logo{
+            #{$fw}:bold;
+            #{$col}:black;
+            #{$fs}:2.5rem;
+            @include padding(3%,15%,0%,0%);
+            @include margin(0,0,0,10%);
+            cursor: pointer;
+            font-family:butler;
+            
+            .brouse{
+                #{$col}:orange;
+                #{$fs}:20px;
+            }
+        }
+
+        .con{
+            @include margin(3%,0,0,30%);
+            .connect{
+                @include texte(none,none,black);
+                #{$fw}:bold;
+                @include taille(200Px,auto);
+                @include padding(5px,20px,5px,20px);
+                #{$text}:right;
+                #{$bg}:transparent;
+                @include bordr(10px);
+                #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                #{$trans}:1s;
+                cursor: pointer;
+            }
+            .connect:hover{
+                #{$trans}:1s;
+                #{$bg}:orange;
+               
+            }
+            .connect1{
+                @extend .connect;
+            }
+        }
+
+        .nav{
+            .nav1{
+                @include taille(20px,2px);
+                #{$bg}:black;
+                @include margin(2px,0,0,0);
+                #{$disp}:none;
+            }
+        }
+
+
+    }
+
+ 
+
+    .nav-logo{
+        @include flex(flex,row,center,center);
+        @include texte(none,none,blue);
+        @include margin(3%,0,0,0);
+        @include padding(1%,2%,1%,2%);
+        #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+        @include bordr(10px);
+
+
+        .nav-item, .nav-link{
+         @include margin(0,0,0px,10px);
+         @include padding(6px,5px,6px,0px);
+         @include texte(none,none,black);
+         font-family:butler;   
+         #{$fs}:0.9rem;
+         #{$fw}:bold;
+         #{$trans}:0.5s;
+        }
+        
+        .nav-item:hover{
+            #{$bg}:lighten(orange,10);
+            @include padding(6px,5px,6px,0px);
+            @include bordr(10px);
+        }
+        .menu{
+            @include taille(auto,auto);
+            #{$bg}:white;
+            #{$bx}:0 0 5px 0 rgb(202, 202, 202);
+            @include margin(5px,0,0,10px);
+            @include padding(0px,4px,0px,4px);
+        }
+        .sous-menu .menu{
+            #{$pos}:fixed;
+            #{$disp}:none;
+            transition: 2s;
+            @include bordr(5px);
+            @include padding(0px,2px,0px,2px);
+
+        }
+        .sous-menu:hover .menu{
+            #{$disp}:block;
+            z-index: 100;
+           
+        }
+        .nav-item1{
+            @include texte(none,none,black);
+            @include margin(5%,0px,5%,0px);
+            @include padding(5px,0px,5px,0px);
+            #{$text}:start;
+            #{$trans}:1s;   
+        }
+        .nav-item1:hover .nav-link{
+            #{$trans}:1s;   
+            border-bottom: 2px solid black;
+        }
+    
+        
+    }
+
+    .nav-small{
+        #{$disp}:none;
+        #{$bg}:aliceblue;
+        @include padding(1%,3%,1%,3%);
+        transform: translate(-100%);
+        .active{
+           transform: translate(0%);
+        }
+        .smallresp{
+            .nav-item1 , .nav-link1{
+                @include texte(none,none,black);
+                @include margin(8%,0,0,0);
+                #{$fw}:bold;
+                #{$fs}:1rem;
+            }
+
+            .nav-link1:hover{
+                border-bottom: 2px solid orange;
+                #{$trans}:0.5s;
+            }
+        }
+
+
+    }
+    
+}
+.connexion{
+    @include flex(flex,column,space-around,center);
+    @include taille(40%,550px);
+    @include margin(2%,0,0,30%);
+    @include padding(0%,0,10%,0);
+    #{$pos}:absolute;
+    #{$top}:0;
+    #{$bg}:orange;
+    @include bordr(10px);
+    z-index: 300;
+    #{$disp}:none;
+    #{$trans}:5s;
+    overflow:hidden;
+    &.mis{
+        #{$disp}:block;
+        #{$pos}:fixed;
+    }
+
+
+    .divikisa{
+        @include margin(0,0,2%,94%);
+        .ikisa{
+            #{$fs}:1.7rem;
+
+            &:hover{
+                #{$col}:red;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .insco{
+        @include margin(0,0,5%,0);
+        #{$text}:center;
+        #{$col}:white;
+    }
+
+    .social{
+        @include flex(flex,row,center,center);
+
+
+        .face{
+            @include taille(140px,30px);
+            @include margin(0,1%,0,1%);
+            @include padding(1%,0,2%,0);
+            @include bordr(10px);
+            #{$bg}:white;
+            #{$text}:center;
+
+            a{
+                @include texte(none,none,black);
+                #{$bg}:white;
+                #{$fw}:bold;
+                #{$fs}:1rem;
+            }
+
+        }
+
+
+    }
+    .seco{
+        #{$trans}:1s;
+        &.active{
+            transform:translateY(-120%);
+            opacity:0;
+            transform: scale(0.4);
+            transform-origin:bottom;
+        }
+        .formulaire{
+            #{$text}:center;    
+            @include padding(0,0,0,0);
+           
+            input{
+                @include taille(300Px,35px);
+                @include margin(0,0,5%,0);
+                outline: none;
+                @include bordr(5px);
+                border: none;
+                @include padding(0,0,0,2%);
+            }
+            button{
+                @include taille(300Px,35px);
+                @include margin(0,0,5%,0);
+                @include bordr(5px);
+                #{$bg}:blue;
+                border: none;
+                #{$fw}:bold;
+                #{$col}:white;
+            }
+        }
+        .inputsec{
+            .ici{
+                #{$col}:blue;
+                border-bottom:1px solid blue;
+                cursor:pointer;
+            }
+            .ici1{
+                #{$col}:blue;
+                border-bottom:1px solid blue;
+                cursor:pointer;
+            }
+        }
+    }
+    .seco1{
+        #{$trans}:1s;
+        transform:scale(0.2);
+        &.active{
+            transform:translateY(-140%);
+        }
+        &.miakatra{
+            transform:translateY(-280%);
+        }
+        .formulaire{
+            #{$text}:center;    
+            @include padding(0,0,0,0);
+           
+            input{
+                @include taille(300Px,35px);
+                @include margin(0,0,5%,0);
+                @include padding(0,0,0,2%);
+                outline: none;
+                @include bordr(5px);
+                border: none;
+            }
+            button{
+                @include taille(300Px,35px);
+                @include margin(0,0,5%,0);
+                @include bordr(5px);
+                #{$bg}:blue;
+                border: none;
+                #{$fw}:bold;
+                #{$col}:white;
+            }
+        }
+        .inputsec{
+            .ici{
+                #{$col}:blue;
+                border-bottom:1px solid blue;
+                cursor:pointer;
+            }
+            .ici1{
+                #{$col}:blue;
+                border-bottom:1px solid blue;
+                cursor:pointer;
+            }
+        }
+    }
+    .seco2{
+        @extend .seco1;
+        &.active{
+            transform:translateY(-280%);
+        }
+        .ici2{
+            @extend .ici1;
+        }
+    }
+
+
+
+}
+.s-sec2{
+    @include taille(100%,100vh);
+    @include flex(flex,row,center,center);
+    @include margin(-5%,0,0,0);
+    z-index:1;
+    overflow: hidden;
+    .img1{
+        @include taille(100%,100%);
+        animation:animate 10s  infinite;
+        @include margin(0,0,0,3%);
+        img{
+            @include taille(1300px,100vh);
+            object-fit: cover;
+            @include margin(0,0,0,50%);
+            opacity:0.8;
+            #{$trans}:1s;
+            &.next{
+                transform: translateX(-102%);
+                opacity:0;
+            }
+
+
+        }
+        .img2{
+            @include taille(1300px,auto);
+            object-fit: cover;
+            @include margin(0,0,0,50%);
+            opacity:0.8;
+            #{$trans}:1s;
+            &.and{
+                transform:translateX(-100%);
+            }
+        }
+    }
+
+}
+.btn{
+    @include flex(flex,row,space-around,center);
+    transform: translateY(-300px);
+    #{$pos}:absolute;
+    gap:1100px;
+    @include margin(0,0,0,2%);
+    z-index:1;
+    .left,.right{
+        #{$fs}:100px;
+        #{$col}:white;
+        cursor: pointer;
+        z-index:1;
+    }
+
+}
+.sec2{
+    @include flex(flex,row,center,center);
+    @include taille(80%,70Px);
+    @include bordr(10px);
+    #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+    @include margin(-12%,0,0,10%);
+    #{$bg}:lighten(white,10);
+    #{$pos}:absolute;
+    z-index: 101;
+    
+    .title-catego{
+        @include margin(-20%,0%,0%,0%);
+        #{$fs}:1.9rem;
+        #{$fw}:bold;
+        #{$col}:#156;
+    }
+    .form-res{
+        @include flex(flex,row,center,center);
+    }
+    .inputsec{
+        @include flex(flex,column,center,center);
+        @include margin(0,0,35px,10px);
+
+        input{
+            @include taille(180px,30px);
+            #{$text}:center;
+            #{$bord}:none;
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+            outline-style: none;
+            @include margin(22%,0,0,0);
+        }
+        .search{
+            @include margin(38px,0,0,0);
+            @include taille(180px,30px);
+            @include bordr(10px);
+            #{$bord}:none;
+            #{$bx}:0 0 3px 0 rgb(212, 212, 212);
+            #{$bg}:lighten(orange,10);
+            cursor: pointer;
+            #{$fw}:bold;
+        }
+        .selection{
+            @include taille(180px,30px);
+            #{$text}:center;
+            #{$bord}:none;
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+            outline-style: none;
+            @include margin(22%,0,0,0);
+        }
+    }
+}
+
+.sec3{
+    @include flex(flex,column,center,center);
+    @include margin(-1%,0,0,0);
+    .title{
+        #{$text}:center;
+
+        .title-fat{
+            #{$fs}:2.5rem;
+            @include margin(10%,0,0,0);
+            #{$col}:black;
+            font-family: edosz;
+        }
+    }
+
+    .difere{
+        @include flex(flex,row,space-around,center);
+        .dif{
+            @include taille(600px,200px);
+            @include margin(5%,5%,5%,5%);
+            @include padding(3%,0,0,0);
+            #{$text}:center;
+            @include bordr(10px);
+            #{$trans}:2s;
+            #{$bx}:0 0 10px 0 rgb(214, 214, 214);
+            cursor: pointer;
+            transform: translateX(125%);
+            
+
+            .ico{
+                #{$fs}:4rem;
+                #{$col}:orange; 
+            }
+            &.dif:nth-of-type(even){
+                transform: translateX(0%);
+            }
+            &.active{ 
+                transform: translateX(0%);
+            }
+             .cat-link{
+                @include texte(none,none,black);
+             }
+        }
+        .dif:hover{
+            #{$col}:black;
+            #{$trans}:1s;
+            #{$bg}:lighten(orange,10);
+
+            .ico{
+                #{$fs}:4rem;
+                #{$col}:black; 
+            }
+
+        }
+    }
+}
+
+.sec4{
+    @include padding(0,0,4%,0);
+    .titles4{
+        #{$text}:center;
+        .que{
+            #{$fs}:2.5rem;
+        }
+        .p-que{
+            #{$fs}:1rem;
+            @include margin(2%,0,3%,0);
+            #{$col}:grey;
+        }
+    }
+
+    .diver{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+
+        .s-diver{
+            #{$text}:center;
+            @include taille(260px,300px);
+            @include margin(2%,0,2%,-1%);
+            @include padding(5%,0,2%,0);
+            #{$bg}:transparent;
+            #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+            @include bordr(10px);
+
+
+            .icondiv{
+                #{$fs}:50px;
+                @include margin(-5%,0,2%,0);
+                #{$col}:orange;
+            }
+            .title-div{
+                @include margin(3%,0,2%,0);
+                #{$fs}:1.5rem;
+            }
+            .p-dive{
+                @include padding(4%,0,2%,0);
+                #{$fs}:1rem;
+                #{$text}:center;
+                #{$col}:grey;
+            }
+
+        }
+        
+    }
+    .entre{
+        #{$text}:center;
+
+        .title-ent{
+            #{$fs}:2.5rem;
+            @include margin(2%,0,1%,0);
+        }
+        .p-ent{
+            #{$fs}:1rem;
+            #{$col}:grey;
+            @include margin(0,0,4%,0);
+        }
+        .decov{
+            text-decoration: none;
+            #{$col}:black;
+            #{$fw}:bold;
+            @include bordr(10px);
+            @include margin(0,0,3%,0);
+            #{$bg}:lighten(orange,10);
+            @include padding(1%,2%,1%,2%);
+        }
+    }
+}
+
+.sec5{
+    @include flex(flex,column,space-around,center);
+    // @include bgimg('../image/bg1.jpg', rgba(0,0,0,0.6),multiply);
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include padding(5%,0,5%,0);
+
+    .titles5{
+        #{$fs}:2.5rem;
+        @include margin(5%,0,2%,0);
+        #{$col}:black;
+    }
+
+    .cont{
+        @include flex(flex,row,space-around,center);
+        @include padding(2%,0,0,0);
+        @include taille(100%,auto);
+
+        .conts5{
+            @include taille(250px,300px);
+            #{$text}:center;
+            @include padding(3%,0,0,0);
+            @include margin(0,0,3%,0);
+            cursor: pointer;
+            #{$bg}:lighten(white,10);
+            border-top:2px solid black;
+            border-bottom: 2px solid black;
+            #{$bx}:0 0 5px 0 rgb(177, 177, 177);
+            @include bordr(10px);
+            
+            .fontaw{
+                #{$fs}:2.5rem;  
+                @include taille(90px,90px);
+                @include bordr(50%);
+                #{$bg}:lighten(orange,10);
+                #{$text}:center;
+                @include padding(10%,0,0,0);
+            }
+
+            .titlec5{
+                #{$fs}:1.5rem;
+                #{$col}:rgb(0, 0, 0);
+            }
+            .pcont5{
+                #{$fs}:1rem;
+                #{$col}:grey; 
+                @include margin(5%,0,0,0);
+                #{$text}:center;
+            }
+
+
+        }
+    }
+}
+
+.sec6{
+    @include flex(flex,column,space-around,center);
+    @include padding(0,0,10%,0);
+
+    .categorie{
+        .titlecatego{
+            #{$fs}:2.5rem;
+            @include margin(5%,0,15%,0);
+        }
+    }
+
+    .catego{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+
+        .contcate{
+            #{$text}:center;
+            @include taille(250px,500Px);
+            // #{$bg}:lighten(black,0);
+            @include bordr(10px); 
+            cursor: pointer; 
+            #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+            #{$pos}:relative;
+            z-index: 1;
+            overflow: hidden;
+            #{$trans}:1s;
+
+            .fontcat{
+                #{$fs}:3.5rem;
+                #{$col}:orange;
+                @include taille(90px,90px);
+                @include bordr(50%);
+                #{$bg}:white;
+                @include margin(2%,0,0,0);
+                @include padding(6%,0,0,0);
+                z-index: 1;
+                border: none;
+            }
+            .titlecar{
+                @include margin(2%,0,0,0);
+                #{$fs}:1.5rem;
+                #{$col}:orange;
+            }
+            .pcatego{
+                @include padding(10%,0,0,10%);
+                #{$col}:black;
+                #{$text}:left;
+                #{$fs}:1rem;
+            }
+           
+            
+        }
+
+        .contcate::before{
+            content: "";
+            #{$text}:center;
+            @include taille(250px,500Px);
+            #{$bg}:lighten(orange,0);
+            // #{$borderp}:0px 40px 0px 40px; 
+            cursor: pointer; 
+            #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+            #{$pos}:absolute;
+            transform: translateY(-120%);
+            top: 0;
+            left: 0;
+            z-index: -1;
+
+
+            
+        }
+        .contcate:hover:before {
+            transform: translateY(0%);
+            transition: 0.5s;
+        }
+
+
+    }
+}
+
+footer{
+    @include flex(flex,row,space-around,center);
+    @include taille(100%,auto);
+    #{$bg}:lighten(black,10);
+    @include padding(5%,0,3%,0);
+
+    .secfoot{
+        @include taille(250px,300px);
+
+
+        .titlefoot{
+            #{$col}:white;
+        }
+        .pfoot{
+            #{$fs}:1rem;
+            #{$col}:white;
+            @include margin(10%,0,0,0);
+        }
+
+        .nav-foot{
+            @include texte(none,none,white);
+            @include margin(0%,0,0,0);
+            @include padding(5%,0,0,0);
+            #{$fs}:1rem;
+        }
+        .link-foot{
+            @include texte(none,none,white);
+            @include padding(5%,0,0,0);
+            #{$trans}:0.5s;
+        }
+        .link-foot:hover{
+            #{$col}:orange;
+            #{$trans}:0.5s;
+        }
+        .mail{
+            @include taille(200px,30px);
+            @include margin(10%,0,0,0);
+            @include bordr(10px);
+            outline: none;
+            @include padding(0,20%,0,10%);
+            #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+            border: none;
+        }
+        .sub{
+            @include margin(0,0,0,-15%);
+            border: none;
+            #{$bg}:white;
+            cursor: pointer;
+            
+        }
+        .sub:hover{
+            #{$col}:orange;
+        }
+        .fontfoot{
+            #{$col}:orange;
+        }
+    }
+}
+
+
+@media screen and (min-width:1920px){
+    .s-sec2{
+        @include taille(100%,100vh);
+        @include flex(flex,row,center,center);
+        @include margin(2%,0,0,0);
+        z-index:1;
+        overflow: hidden;
+        
+
+    }
+    .connexion{
+        @include flex(flex,column,space-around,center);
+        @include taille(30%,600px);
+        @include margin(2%,0,0,30%);
+        @include padding(0%,0,10%,0);
+        #{$pos}:absolute;
+        #{$top}:0;
+        #{$bg}:orange;
+        @include bordr(10px);
+        z-index: 300;
+        #{$disp}:none;
+        #{$trans}:5s;
+        overflow:hidden;
+        &.mis{
+            #{$disp}:block;
+            #{$pos}:fixed;
+        }
+    
+    
+        .divikisa{
+            @include margin(0,0,2%,94%);
+            .ikisa{
+                #{$fs}:1.7rem;
+    
+                &:hover{
+                    #{$col}:red;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .insco{
+            @include margin(0,0,5%,0);
+            #{$text}:center;
+            #{$col}:white;
+        }
+    
+        .social{
+            @include flex(flex,row,center,center);
+    
+    
+            .face{
+                @include taille(140px,30px);
+                @include margin(0,1%,0,1%);
+                @include padding(1%,0,2%,0);
+                @include bordr(10px);
+                #{$bg}:white;
+                #{$text}:center;
+    
+                a{
+                    @include texte(none,none,black);
+                    #{$bg}:white;
+                    #{$fw}:bold;
+                    #{$fs}:1rem;
+                }
+    
+            }
+    
+    
+        }
+        .seco{
+            #{$trans}:1s;
+            &.active{
+                transform:translateY(-120%);
+                opacity:0;
+                transform: scale(0.4);
+                transform-origin:bottom;
+            }
+            .formulaire{
+                #{$text}:center;    
+                @include padding(0,0,0,0);
+               
+                input{
+                    @include taille(300Px,35px);
+                    @include margin(0,0,5%,0);
+                    outline: none;
+                    @include bordr(5px);
+                    border: none;
+                    @include padding(0,0,0,2%);
+                }
+                button{
+                    @include taille(300Px,35px);
+                    @include margin(0,0,5%,0);
+                    @include bordr(5px);
+                    #{$bg}:blue;
+                    border: none;
+                    #{$fw}:bold;
+                    #{$col}:white;
+                }
+            }
+            .inputsec{
+                .ici{
+                    #{$col}:blue;
+                    border-bottom:1px solid blue;
+                    cursor:pointer;
+                }
+                .ici1{
+                    #{$col}:blue;
+                    border-bottom:1px solid blue;
+                    cursor:pointer;
+                }
+            }
+        }
+        .seco1{
+            #{$trans}:1s;
+            transform:scale(0.2);
+            &.active{
+                transform:translateY(-140%);
+            }
+            &.miakatra{
+                transform:translateY(-280%);
+            }
+            .formulaire{
+                #{$text}:center;    
+                @include padding(0,0,0,0);
+               
+                input{
+                    @include taille(300Px,35px);
+                    @include margin(0,0,5%,0);
+                    @include padding(0,0,0,2%);
+                    outline: none;
+                    @include bordr(5px);
+                    border: none;
+                }
+                button{
+                    @include taille(300Px,35px);
+                    @include margin(0,0,5%,0);
+                    @include bordr(5px);
+                    #{$bg}:blue;
+                    border: none;
+                    #{$fw}:bold;
+                    #{$col}:white;
+                }
+            }
+            .inputsec{
+                .ici{
+                    #{$col}:blue;
+                    border-bottom:1px solid blue;
+                    cursor:pointer;
+                }
+                .ici1{
+                    #{$col}:blue;
+                    border-bottom:1px solid blue;
+                    cursor:pointer;
+                }
+            }
+        }     
+    
+    }
+}
+@media screen and (max-width:1024px){
+    header{
+        @include flex(flex,column,space-around,center);
+        @include taille(auto,auto);
+    
+        .logo-div{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .logo{
+                #{$fw}:bold;
+                #{$col}:black;
+                #{$fs}:2.5rem;
+                @include padding(3%,15%,0%,0%);
+                @include margin(0,0,0,5%);
+                cursor: pointer;
+                font-family: edosz;
+                
+                .brouse{
+                    #{$col}:orange;
+                    #{$fs}:20px;
+                }
+            }
+    
+            .con{
+                @include margin(3%,0,0,30%);
+                .connect{
+                    @include texte(none,none,black);
+                    #{$fw}:bold;
+                    @include taille(200Px,auto);
+                    @include padding(5px,20px,5px,20px);
+                    #{$text}:right;
+                    #{$bg}:transparent;
+                    @include bordr(10px);
+                    #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                    #{$trans}:1s;
+                }
+                .connect:hover{
+                    #{$trans}:1s;
+                    #{$bg}:orange;
+                }
+            }
+    
+        }
+    
+     
+    
+        .nav-logo{
+            @include flex(flex,row,center,center);
+            @include texte(none,none,blue);
+            @include margin(3%,0,0,0);
+            @include padding(1%,2%,1%,2%);
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+    
+    
+            .nav-item, .nav-link{
+             @include margin(0,0,0px,10px);
+             @include padding(6px,5px,6px,0px);
+             @include texte(none,none,black);
+             font-family:   Helvetica;   
+             #{$fs}:0.9rem;
+             #{$fw}:bold;
+             #{$trans}:1s;
+            }
+            
+            .nav-item:hover{
+                #{$bg}:lighten(orange,10);
+                @include padding(6px,5px,6px,0px);
+                @include bordr(10px);
+            }
+            .menu{
+                @include taille(auto,auto);
+                #{$bg}:lighten(orange,10);
+                @include margin(5px,0,0,10px);
+                @include padding(0px,4px,0px,4px);
+            }
+            .sous-menu .menu{
+                #{$pos}:fixed;
+                #{$disp}:none;
+                transition: 2s;
+                @include bordr(5px);
+                @include padding(0px,2px,0px,2px);
+    
+            }
+            .sous-menu:hover .menu{
+                #{$disp}:block;
+               
+            }
+            .nav-item1{
+                @include texte(none,none,black);
+                @include margin(5%,0px,5%,0px);
+                @include padding(5px,0px,5px,0px);
+                #{$text}:start;
+                #{$trans}:1s;   
+            }
+            .nav-item1:hover .nav-link{
+                #{$trans}:1s;   
+                border-bottom: 2px solid black;
+            }
+        
+            
+        }
+        
+    }
+    .connexion{
+        @include flex(flex,column,space-around,center);
+        @include taille(40%,350px);
+        @include margin(10%,0,0,30%);
+        @include padding(0%,0,10%,0);
+        #{$pos}:absolute;
+        #{$top}:0;
+        #{$bg}:orange;
+        @include bordr(10px);
+        z-index: 1;
+        #{$disp}:none;
+        #{$trans}:5s;
+        &.mis{
+            #{$disp}:block;
+            #{$pos}:fixed;
+        }
+    
+    
+        .divikisa{
+            @include margin(0,0,2%,94%);
+            .ikisa{
+                #{$fs}:1.7rem;
+    
+                &:hover{
+                    #{$col}:red;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .insco{
+            @include margin(0,0,10%,0);
+            #{$text}:center;
+            #{$col}:white;
+        }
+    
+        .social{
+            @include flex(flex,row,center,center);
+    
+    
+            .face{
+                @include taille(140px,30px);
+                @include margin(0,1.8%,0,1.8%);
+                @include padding(1%,0,2%,0);
+                @include bordr(10px);
+                #{$bg}:white;
+                #{$text}:center;
+    
+                a{
+                    @include texte(none,none,black);
+                    #{$bg}:white;
+                    #{$fw}:bold;
+                    #{$fs}:1rem;
+                }
+    
+            }
+    
+    
+        }
+        .seco{
+            .formulaire{
+                #{$text}:center;    
+                @include padding(0%,0,0,0);
+               
+                input{
+                    @include taille(300Px,30px);
+                    @include margin(5%,0,0,0);
+                    #{$text}:center;
+                    outline: none;
+                    @include bordr(10px);
+                    border: none;
+                }
+                button{
+                    @include taille(300Px,30px);
+                    @include margin(5%,0,10%,0);
+                    @include bordr(10px);
+                    #{$bg}:blue;
+                    border: none;
+                    #{$fw}:bold;
+                    #{$col}:white;
+                }
+            }
+        }
+    
+    
+    
+    }
+    .s-sec2{
+        @include taille(100%,100vh);
+        @include flex(flex,row,center,center);
+        @include margin(2%,0,0,0);
+        z-index:1;
+        overflow: hidden;
+        .img1{
+            @include taille(100%,100%);
+            animation:animate 10s  infinite;
+            @include margin(0,0,0,3%);
+            img{
+                @include taille(1300px,100vh);
+                object-fit: cover;
+                @include margin(0,0,0,50%);
+                opacity:0.8;
+                #{$trans}:1s;
+                &.next{
+                    transform: translateX(-102%);
+                    opacity:0;
+                }
+
+
+            }
+            .img2{
+                @include taille(1300px,auto);
+                object-fit: cover;
+                @include margin(0,0,0,50%);
+                opacity:0.8;
+                #{$trans}:1s;
+                &.and{
+                    transform:translateX(-100%);
+                }
+            }
+        }
+
+}
+    .sec2{
+        @include flex(flex,row,center,center);
+        @include taille(80%,70Px);
+        @include bordr(10px);
+        #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+        @include margin(-35px,0,0,10%);
+        #{$bg}:lighten(white,10);
+        
+        .title-catego{
+            @include margin(2%,0%,0%,0%);
+            #{$fs}:1.9rem;
+            #{$fw}:bold;
+            #{$col}:#156;
+        }
+        .form-res{
+            @include flex(flex,row,center,center);
+        }
+        .inputsec{
+            @include flex(flex,column,center,center);
+            @include margin(0,0,35px,10px);
+    
+            input{
+                @include taille(130px,30px);
+                #{$text}:center;
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                @include bordr(10px);
+                outline-style: none;
+            }
+            .search{
+                @include margin(38px,0,0,0);
+                @include taille(180px,30px);
+                @include bordr(10px);
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(212, 212, 212);
+                #{$bg}:lighten(orange,10);
+                cursor: pointer;
+                #{$fw}:bold;
+            }
+            label{
+            @include margin(10%,0,3px,0);
+            #{$col}:grey;
+            }
+        }
+    }
+    
+    .sec3{
+        @include flex(flex,column,center,center);
+        .title{
+            #{$text}:center;
+    
+            .title-fat{
+                #{$fs}:2.5rem;
+                @include margin(10%,0,0,0);
+                #{$col}:black;
+                font-family: edosz;
+            }
+        }
+    
+        .difere{
+            @include flex(flex,row,space-around,center);
+            .dif{
+                @include taille(450px,200px);
+                @include margin(5%,5%,5%,5%);
+                @include padding(3%,0,0,0);
+                #{$text}:center;
+                @include bordr(10px);
+                #{$trans}:1s;
+                #{$bx}:0 0 10px 0 rgb(214, 214, 214);
+                cursor: pointer;
+    
+                .ico{
+                    #{$fs}:4rem;
+                    #{$col}:orange; 
+                }
+            }
+            .dif:hover{
+                #{$col}:black;
+                #{$trans}:1s;
+                #{$bg}:lighten(orange,10);
+    
+                .ico{
+                    #{$fs}:4rem;
+                    #{$col}:black; 
+                }
+    
+            }
+        }
+    }
+    
+    .sec4{
+        @include padding(0,0,4%,0);
+        .titles4{
+            #{$text}:center;
+            .que{
+                #{$fs}:2.5rem;
+            }
+            .p-que{
+                #{$fs}:1rem;
+                @include margin(2%,0,3%,0);
+                #{$col}:grey;
+            }
+        }
+    
+        .diver{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .s-diver{
+                #{$text}:center;
+                @include taille(220px,300px);
+                @include margin(2%,0,2%,-1%);
+                @include padding(5%,0,2%,0);
+                #{$bg}:transparent;
+                #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+                @include bordr(10px);
+    
+    
+                .icondiv{
+                    #{$fs}:50px;
+                    @include margin(-5%,0,2%,0);
+                    #{$col}:orange;
+                }
+                .title-div{
+                    @include margin(3%,0,2%,0);
+                    #{$fs}:1.5rem;
+                }
+                .p-dive{
+                    @include padding(4%,0,2%,0);
+                    #{$fs}:1rem;
+                    #{$text}:center;
+                    #{$col}:grey;
+                }
+    
+            }
+            
+        }
+        .entre{
+            #{$text}:center;
+    
+            .title-ent{
+                #{$fs}:2.5rem;
+                @include margin(2%,0,1%,0);
+            }
+            .p-ent{
+                #{$fs}:1rem;
+                #{$col}:grey;
+                @include margin(0,0,4%,0);
+            }
+            .decov{
+                text-decoration: none;
+                #{$col}:black;
+                #{$fw}:bold;
+                @include bordr(10px);
+                @include margin(0,0,3%,0);
+                #{$bg}:lighten(orange,10);
+                @include padding(1%,2%,1%,2%);
+            }
+        }
+    }
+    
+    .sec5{
+        @include flex(flex,column,space-around,center);
+        @include bgimg('../image/bg1.jpg', rgba(0,0,0,0.6),multiply);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include padding(5%,0,5%,0);
+    
+        .titles5{
+            #{$fs}:2.5rem;
+            @include margin(5%,0,2%,0);
+            #{$col}:white;
+        }
+    
+        .cont{
+            @include flex(flex,row,space-around,center);
+            @include padding(2%,0,0,0);
+            @include taille(100%,auto);
+    
+            .conts5{
+                @include taille(200px,300px);
+                #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+                #{$text}:center;
+                @include padding(3%,0,0,0);
+                @include margin(0,0,3%,0);
+                #{$borderp}:40px 0 40px 0;  
+                cursor: pointer;
+                #{$bg}:lighten(white,10);
+                
+                .fontaw{
+                    #{$fs}:2.5rem;  
+                    @include taille(90px,90px);
+                    @include bordr(50%);
+                    #{$bg}:lighten(orange,10);
+                    #{$text}:center;
+                    @include padding(10%,0,0,0);
+                }
+    
+                .titlec5{
+                    #{$fs}:1.5rem;
+                    #{$col}:rgb(0, 0, 0);
+                }
+                .pcont5{
+                    #{$fs}:1rem;
+                    #{$col}:grey; 
+                    @include margin(5%,0,0,0);
+                    #{$text}:center;
+                }
+    
+    
+            }
+        }
+    }
+    
+    .sec6{
+        @include flex(flex,column,space-around,center);
+        @include padding(0,0,10%,0);
+    
+        .categorie{
+            .titlecatego{
+                #{$fs}:2.5rem;
+                @include margin(5%,0,15%,0);
+            }
+        }
+    
+        .catego{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .contcate{
+                #{$text}:center;
+                @include taille(200px,500Px);
+                #{$bg}:lighten(black,0);
+                #{$borderp}:40px 0 40px 0; 
+                cursor: pointer; 
+                #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+                #{$pos}:relative;
+                z-index: 1;
+                overflow: hidden;
+                #{$trans}:1s;
+    
+                .fontcat{
+                    #{$fs}:3.5rem;
+                    #{$col}:orange;
+                    @include taille(90px,90px);
+                    @include bordr(50%);
+                    #{$bg}:rgb(0, 0, 0);
+                    @include margin(2%,0,0,0);
+                    @include padding(6%,0,0,0);
+                    z-index: 1;
+                }
+                .titlecar{
+                    @include margin(2%,0,0,0);
+                    #{$fs}:1rem;
+                    #{$col}:white;
+                }
+                .pcatego{
+                    @include padding(10%,0,0,10%);
+                    #{$col}:rgb(255, 255, 255);
+                    #{$text}:left;
+                    #{$fs}:1rem;
+                }
+               
+                
+            }
+    
+            .contcate::before{
+                content: "";
+                #{$text}:center;
+                @include taille(250px,500Px);
+                #{$bg}:lighten(orange,0);
+                #{$borderp}:0px 40px 0px 40px; 
+                cursor: pointer; 
+                #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+                #{$pos}:absolute;
+                transform: translateY(-120%);
+                top: 0;
+                left: 0;
+                z-index: -1;
+    
+    
+                
+            }
+            .contcate:hover:before {
+                transform: translateY(0%);
+                transition: 1s;
+            }
+    
+    
+        }
+    }
+    
+    footer{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+        #{$bg}:lighten(black,10);
+        @include padding(5%,0,3%,0);
+    
+        .secfoot{
+            @include taille(200px,300px);
+    
+    
+            .titlefoot{
+                #{$col}:white;
+            }
+            .pfoot{
+                #{$fs}:1rem;
+                #{$col}:white;
+                @include margin(10%,0,0,0);
+            }
+    
+            .nav-foot{
+                @include texte(none,none,white);
+                @include margin(0%,0,0,0);
+                @include padding(5%,0,0,0);
+                #{$fs}:1rem;
+            }
+            .link-foot{
+                @include texte(none,none,white);
+                @include padding(5%,0,0,0);
+                #{$trans}:0.5s;
+            }
+            .link-foot:hover{
+                #{$col}:orange;
+                #{$trans}:0.5s;
+            }
+            .mail{
+                @include taille(200px,30px);
+                @include margin(10%,0,0,0);
+                @include bordr(10px);
+                outline: none;
+                @include padding(0,20%,0,10%);
+                #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+            }
+            .sub{
+                @include margin(27px,0,0,1%);
+                border: none;
+                #{$bg}:orange;
+                cursor: pointer;
+                @include taille(200px,30px);
+                @include bordr(10px);
+                #{$fs}:1.3rem;
+                
+            }
+            .sub:hover{
+                #{$col}:rgb(255, 255, 255);
+            }
+            .fontfoot{
+                #{$col}:orange;
+            }
+        }
+    }
+    
+}
+@media screen and (max-width:768px) {
+    header{
+        @include flex(flex,column,space-around,center);
+        @include taille(auto,auto);
+    
+        .logo-div{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .logo{
+                #{$fw}:bold;
+                #{$col}:black;
+                #{$fs}:2rem;
+                @include padding(3%,15%,0%,0%);
+                @include margin(0,0,0,0%);
+                cursor: pointer;
+                font-family: edosz;
+                
+                .brouse{
+                    #{$col}:orange;
+                    #{$fs}:20px;
+                }
+            }
+    
+            .con{
+                @include margin(3%,0,0,20%);
+                .connect{
+                    @include texte(none,none,black);
+                    #{$fw}:bold;
+                    @include taille(200Px,auto);
+                    @include padding(5px,20px,5px,20px);
+                    #{$text}:right;
+                    #{$bg}:transparent;
+                    @include bordr(10px);
+                    #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                    #{$trans}:1s;
+                }
+                .connect:hover{
+                    #{$trans}:1s;
+                    #{$bg}:orange;
+                }
+            }
+    
+        }
+    
+     
+    
+        .nav-logo{
+            @include flex(flex,row,center,center);
+            @include texte(none,none,blue);
+            @include margin(3%,0,0,0);
+            @include padding(1%,2%,1%,2%);
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+    
+    
+            .nav-item, .nav-link{
+             @include margin(0,0,0px,10px);
+             @include padding(6px,5px,6px,0px);
+             @include texte(none,none,black);
+             font-family:   Helvetica;   
+             #{$fs}:0.6rem;
+             #{$fw}:bold;
+             #{$trans}:1s;
+            }
+            
+            .nav-item:hover{
+                #{$bg}:lighten(orange,10);
+                @include padding(6px,5px,6px,0px);
+                @include bordr(10px);
+            }
+            .menu{
+                @include taille(auto,auto);
+                #{$bg}:lighten(orange,10);
+                @include margin(5px,0,0,10px);
+                @include padding(0px,4px,0px,4px);
+            }
+            .sous-menu .menu{
+                #{$pos}:fixed;
+                #{$disp}:none;
+                transition: 2s;
+                @include bordr(5px);
+                @include padding(0px,2px,0px,2px);
+    
+            }
+            .sous-menu:hover .menu{
+                #{$disp}:block;
+               
+            }
+            .nav-item1{
+                @include texte(none,none,black);
+                @include margin(5%,0px,5%,0px);
+                @include padding(5px,0px,5px,0px);
+                #{$text}:start;
+                #{$trans}:1s;   
+            }
+            .nav-item1:hover .nav-link{
+                #{$trans}:1s;   
+                border-bottom: 2px solid black;
+            }
+        
+            
+        }
+        
+    }
+    .connexion{
+        @include flex(flex,column,space-around,center);
+        @include taille(40%,350px);
+        @include margin(10%,0,0,30%);
+        @include padding(0%,0,10%,0);
+        #{$pos}:absolute;
+        #{$top}:0;
+        #{$bg}:orange;
+        @include bordr(10px);
+        z-index: 1;
+        #{$disp}:none;
+        #{$trans}:5s;
+        &.mis{
+            #{$disp}:block;
+            #{$pos}:fixed;
+        }
+    
+    
+        .divikisa{
+            @include margin(0,0,2%,94%);
+            .ikisa{
+                #{$fs}:1.7rem;
+    
+                &:hover{
+                    #{$col}:red;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .insco{
+            @include margin(0,0,10%,0);
+            #{$text}:center;
+            #{$col}:white;
+        }
+    
+        .social{
+            @include flex(flex,row,center,center);
+    
+    
+            .face{
+                @include taille(140px,30px);
+                @include margin(0,1.8%,0,1.8%);
+                @include padding(1%,0,2%,0);
+                @include bordr(10px);
+                #{$bg}:white;
+                #{$text}:center;
+    
+                a{
+                    @include texte(none,none,black);
+                    #{$bg}:white;
+                    #{$fw}:bold;
+                    #{$fs}:1rem;
+                }
+    
+            }
+    
+    
+        }
+        .seco{
+            .formulaire{
+                #{$text}:center;    
+                @include padding(0%,0,0,0);
+               
+                input{
+                    @include taille(300Px,30px);
+                    @include margin(5%,0,0,0);
+                    #{$text}:center;
+                    outline: none;
+                    @include bordr(10px);
+                    border: none;
+                }
+                button{
+                    @include taille(300Px,30px);
+                    @include margin(5%,0,10%,0);
+                    @include bordr(10px);
+                    #{$bg}:blue;
+                    border: none;
+                    #{$fw}:bold;
+                    #{$col}:white;
+                }
+            }
+        }
+    
+    
+    
+    }
+    .s-sec2{
+        @include taille(100%,100vh);
+        @include flex(flex,row,center,center);
+        @include margin(2%,0,0,0);
+        z-index:1;
+        overflow: hidden;
+        .img1{
+            @include taille(100%,100%);
+            animation:animate 10s  infinite;
+            @include margin(0,0,0,3%);
+            img{
+                @include taille(1300px,100vh);
+                object-fit: cover;
+                @include margin(0,0,0,50%);
+                opacity:0.8;
+                #{$trans}:1s;
+                &.next{
+                    transform: translateX(-102%);
+                    opacity:0;
+                }
+
+
+            }
+            .img2{
+                @include taille(1300px,auto);
+                object-fit: cover;
+                @include margin(0,0,0,50%);
+                opacity:0.8;
+                #{$trans}:1s;
+                &.and{
+                    transform:translateX(-100%);
+                }
+            }
+        }
+
+}
+    .sec2{
+        @include flex(flex,row,center,center);
+        @include taille(80%,70Px);
+        @include bordr(10px);
+        #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+        @include margin(-35px,0,0,10%);
+        #{$bg}:lighten(white,10);
+        
+        .title-catego{
+            @include margin(2%,0%,0%,0%);
+            #{$fs}:1.9rem;
+            #{$fw}:bold;
+            #{$col}:#156;
+        }
+        .form-res{
+            @include flex(flex,row,center,center);
+        }
+        .inputsec{
+            @include flex(flex,column,center,center);
+            @include margin(0,0,35px,10px);
+    
+            input{
+                @include taille(100px,26px);
+                #{$text}:center;
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                @include bordr(10px);
+                outline-style: none;
+            }
+            .search{
+                @include margin(31px,0,0,0);
+                @include taille(100px,26px);
+                @include bordr(10px);
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(212, 212, 212);
+                #{$bg}:lighten(orange,10);
+                cursor: pointer;
+                #{$fw}:bold;
+            }
+            label{
+            @include margin(10%,0,3px,0);
+            #{$col}:grey;
+            }
+        }
+    }
+    
+    .sec3{
+        @include flex(flex,column,center,center);
+        .title{
+            #{$text}:center;
+    
+            .title-fat{
+                #{$fs}:2rem;
+                @include margin(10%,0,0,0);
+                #{$col}:black;
+                font-family: edosz;
+            }
+        }
+    
+        .difere{
+            @include flex(flex,row,space-around,center);
+            .dif{
+                @include taille(350px,200px);
+                @include margin(5%,5%,5%,5%);
+                @include padding(3%,0,0,0);
+                #{$text}:center;
+                @include bordr(10px);
+                #{$trans}:1s;
+                #{$bx}:0 0 10px 0 rgb(214, 214, 214);
+                cursor: pointer;
+    
+                .ico{
+                    #{$fs}:4rem;
+                    #{$col}:orange; 
+                    @include margin(10%,0,0,0);
+                }
+                .title-ico{
+                    #{$fs}:1.2rem;
+                }
+            }
+            .dif:hover{
+                #{$col}:black;
+                #{$trans}:1s;
+                #{$bg}:lighten(orange,10);
+    
+                .ico{
+                    #{$fs}:4rem;
+                    #{$col}:black; 
+                }
+    
+            }
+        }
+    }
+    
+    .sec4{
+        @include padding(0,0,4%,0);
+        .titles4{
+            #{$text}:center;
+            .que{
+                #{$fs}:2rem;
+            }
+            .p-que{
+                #{$fs}:1rem;
+                @include margin(2%,0,3%,0);
+                #{$col}:grey;
+            }
+        }
+    
+        .diver{
+            @include flex(flex,row,space-around,center);
+            @include taille(95%,auto);
+            @include margin(0,0,0,2.5%);
+    
+            .s-diver{
+                #{$text}:center;
+                @include taille(150px,300px);
+                @include margin(2%,0,2%,-1%);
+                @include padding(5%,0,2%,0);
+                #{$bg}:transparent;
+                #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+                @include bordr(10px);
+    
+    
+                .icondiv{
+                    #{$fs}:50px;
+                    @include margin(-5%,0,2%,0);
+                    #{$col}:orange;
+                }
+                .title-div{
+                    @include margin(3%,0,2%,0);
+                    #{$fs}:1.5rem;
+                }
+                .p-dive{
+                    @include padding(4%,0,2%,0);
+                    #{$fs}:1rem;
+                    #{$text}:center;
+                    #{$col}:grey;
+                }
+    
+            }
+            
+        }
+        .entre{
+            #{$text}:center;
+    
+            .title-ent{
+                #{$fs}:2rem;
+                @include margin(2%,0,1%,0);
+            }
+            .p-ent{
+                #{$fs}:1rem;
+                #{$col}:grey;
+                @include margin(0,0,4%,0);
+            }
+            .decov{
+                text-decoration: none;
+                #{$col}:black;
+                #{$fw}:bold;
+                @include bordr(10px);
+                @include margin(0,0,3%,0);
+                #{$bg}:lighten(orange,10);
+                @include padding(1%,2%,1%,2%);
+            }
+        }
+    }
+    
+    .sec5{
+        @include flex(flex,column,space-around,center);
+        @include bgimg('../image/bg1.jpg', rgba(0,0,0,0.6),multiply);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include padding(5%,0,5%,0);
+    
+        .titles5{
+            #{$fs}:2rem;
+            @include margin(5%,0,2%,0);
+            #{$col}:white;
+        }
+    
+        .cont{
+            @include flex(flex,row,space-around,center);
+            @include padding(2%,0,0,0);
+            @include taille(95%,auto);
+            @include margin(0,0,0,2.5%);
+    
+            .conts5{
+                @include taille(150px,300px);
+                #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+                #{$text}:center;
+                @include padding(3%,0,0,0);
+                @include margin(0,0,3%,0);
+                #{$borderp}:40px 0 40px 0;  
+                cursor: pointer;
+                #{$bg}:lighten(white,10);
+                
+                .fontaw{
+                    #{$fs}:2.5rem;  
+                    @include taille(90px,90px);
+                    @include bordr(50%);
+                    #{$bg}:lighten(orange,10);
+                    #{$text}:center;
+                    @include padding(10%,0,0,0);
+                }
+    
+                .titlec5{
+                    #{$fs}:1.5rem;
+                    #{$col}:rgb(0, 0, 0);
+                }
+                .pcont5{
+                    #{$fs}:1rem;
+                    #{$col}:grey; 
+                    @include margin(5%,0,0,0);
+                    #{$text}:center;
+                }
+    
+    
+            }
+        }
+    }
+    
+    .sec6{
+        @include flex(flex,column,space-around,center);
+        @include padding(0,0,10%,0);
+    
+        .categorie{
+            .titlecatego{
+                #{$fs}:2rem;
+                @include margin(5%,0,15%,0);
+            }
+        }
+    
+        .catego{
+            @include flex(flex,row,space-around,center);
+            @include taille(95%,auto);
+            @include margin(0,0,0,2.5%);
+    
+            .contcate{
+                #{$text}:center;
+                @include taille(150px,350Px);
+                #{$bg}:lighten(black,0);
+                #{$borderp}:40px 0 40px 0; 
+                cursor: pointer; 
+                #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+                #{$pos}:relative;
+                z-index: 1;
+                overflow: hidden;
+                #{$trans}:1s;
+    
+                .fontcat{
+                    #{$fs}:3.5rem;
+                    #{$col}:orange;
+                    @include taille(90px,90px);
+                    @include bordr(50%);
+                    #{$bg}:rgb(0, 0, 0);
+                    @include margin(2%,0,0,0);
+                    @include padding(6%,0,0,0);
+                    z-index: 1;
+                }
+                .titlecar{
+                    @include margin(2%,0,0,0);
+                    #{$fs}:1rem;
+                    #{$col}:white;
+                }
+                .pcatego{
+                    @include padding(10%,0,0,10%);
+                    #{$col}:rgb(255, 255, 255);
+                    #{$text}:left;
+                    #{$fs}:0.7rem;
+                }
+               
+                
+            }
+    
+            .contcate::before{
+                content: "";
+                #{$text}:center;
+                @include taille(150px,350Px);
+                #{$bg}:lighten(orange,0);
+                #{$borderp}:0px 40px 0px 40px; 
+                cursor: pointer; 
+                #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+                #{$pos}:absolute;
+                transform: translateY(-120%);
+                top: 0;
+                left: 0;
+                z-index: -1;
+    
+    
+                
+            }
+            .contcate:hover:before {
+                transform: translateY(0%);
+                transition: 1s;
+            }
+    
+    
+        }
+    }
+    
+    footer{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+        #{$bg}:lighten(black,10);
+        @include padding(5%,0,3%,0);
+    
+        .secfoot{
+            @include taille(150px,230px);
+    
+    
+            .titlefoot{
+                #{$col}:white;
+                #{$fs}:1.2rem;
+            }
+            .pfoot{
+                #{$fs}:1rem;
+                #{$col}:white;
+                @include margin(10%,0,0,0);
+            }
+    
+            .nav-foot{
+                @include texte(none,none,white);
+                @include margin(0%,0,0,0);
+                @include padding(5%,0,0,0);
+                #{$fs}:1rem;
+            }
+            .link-foot{
+                @include texte(none,none,white);
+                @include padding(5%,0,0,0);
+                #{$trans}:0.5s;
+            }
+            .link-foot:hover{
+                #{$col}:orange;
+                #{$trans}:0.5s;
+            }
+            .mail{
+                @include taille(140px,25px);
+                @include margin(10%,0,0,0);
+                @include bordr(10px);
+                outline: none;
+                @include padding(0,20%,0,10%);
+                #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+            }
+            .sub{
+                @include margin(27px,0,0,1%);
+                border: none;
+                #{$bg}:orange;
+                cursor: pointer;
+                @include taille(140px,25px);
+                @include bordr(10px);
+                #{$fs}:1.2rem;
+                
+            }
+            .sub:hover{
+                #{$col}:rgb(255, 255, 255);
+            }
+            .fontfoot{
+                #{$col}:orange;
+            }
+        }
+    }
+    
+}
+@media screen and (max-width:425px) {
+    header{
+        @include flex(flex,column,space-around,center);
+        @include taille(auto,auto);
+        overflow: hidden;
+        @include margin(0,0,-100%,0);
+    
+        .logo-div{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .logo{
+                #{$fw}:bold;
+                #{$col}:black;
+                #{$fs}:2rem;
+                @include padding(3%,15%,0%,0%);
+                @include margin(0,0,0,0%);
+                cursor: pointer;
+                font-family: edosz;
+                
+                .brouse{
+                    #{$col}:orange;
+                    #{$fs}:20px;
+                }
+            }
+    
+            .con{
+                @include margin(3%,0,0,20%);
+                #{$disp}:none;
+                .connect{
+                    @include texte(none,none,black);
+                    #{$fw}:bold;
+                    @include taille(200Px,auto);
+                    @include padding(5px,20px,5px,20px);
+                    #{$text}:right;
+                    #{$bg}:transparent;
+                    @include bordr(10px);
+                    #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                    #{$trans}:1s;
+                }
+                .connect:hover{
+                    #{$trans}:1s;
+                    #{$bg}:orange;
+                }
+            }
+
+            .nav{
+                .nav1{
+                    @include taille(20px,2px);
+                    #{$bg}:black;
+                    @include margin(2px,0,0,0);
+                    #{$disp}:block;
+                }
+            }
+    
+        }
+    
+     
+    
+        .nav-logo{
+            @include flex(flex,row,center,center);
+            @include texte(none,none,blue);
+            @include margin(3%,0,0,0);
+            @include padding(1%,2%,1%,2%);
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+            #{$disp}:none;
+    
+    
+            .nav-item, .nav-link{
+             @include margin(0,0,0px,10px);
+             @include padding(6px,5px,6px,0px);
+             @include texte(none,none,black);
+             font-family:   Helvetica;   
+             #{$fs}:0.6rem;
+             #{$fw}:bold;
+             #{$trans}:1s;
+            }
+            
+            .nav-item:hover{
+                #{$bg}:lighten(orange,10);
+                @include padding(6px,5px,6px,0px);
+                @include bordr(10px);
+            }
+            .menu{
+                @include taille(auto,auto);
+                #{$bg}:lighten(orange,10);
+                @include margin(5px,0,0,10px);
+                @include padding(0px,4px,0px,4px);
+            }
+            .sous-menu .menu{
+                #{$pos}:fixed;
+                #{$disp}:none;
+                transition: 2s;
+                @include bordr(5px);
+                @include padding(0px,2px,0px,2px);
+    
+            }
+            .sous-menu:hover .menu{
+                #{$disp}:block;
+               
+            }
+            .nav-item1{
+                @include texte(none,none,black);
+                @include margin(5%,0px,5%,0px);
+                @include padding(5px,0px,5px,0px);
+                #{$text}:start;
+                #{$trans}:1s;   
+            }
+            .nav-item1:hover .nav-link{
+                #{$trans}:1s;   
+                border-bottom: 2px solid black;
+            }
+        
+            
+        }
+        
+        
+    .nav-small{
+        #{$disp}:block;
+        #{$bg}:lighten(orange,10);
+        @include padding(1%,3%,1%,3%);
+        transform: translateX(150%);
+        #{$trans}:0.5s ease;
+        @include bordr(10px);
+        z-index:5;
+        &.active{
+            transform: translateX(41%);
+
+        }
+
+        .smallresp{
+            .nav-item1 , .nav-link1{
+                @include texte(none,none,black);
+                @include margin(8%,0,0,0);
+                #{$fw}:bold;
+                #{$fs}:1rem;
+            }
+
+            .nav-link1:hover{
+                border-bottom: 2px solid rgb(255, 255, 255);
+                #{$trans}:0.5s;
+            }
+        }
+
+
+    }
+    }
+    .s-sec2{
+        @include taille(100%,100vh);
+        @include flex(flex,row,center,center);
+        @include margin(2%,0,0,0);
+        z-index:1;
+        overflow: hidden;
+        .img1{
+            @include taille(100%,100%);
+            animation:animate 10s  infinite;
+            @include margin(0,0,0,3%);
+            img{
+                @include taille(1300px,100vh);
+                object-fit: cover;
+                @include margin(0,0,0,50%);
+                opacity:0.8;
+                #{$trans}:1s;
+                &.next{
+                    transform: translateX(-102%);
+                    opacity:0;
+                }
+
+
+            }
+            .img2{
+                @include taille(1300px,auto);
+                object-fit: cover;
+                @include margin(0,0,0,50%);
+                opacity:0.8;
+                #{$trans}:1s;
+                &.and{
+                    transform:translateX(-100%);
+                }
+            }
+        }
+
+}
+    .sec2{
+        @include flex(flex,row,center,center);
+        @include taille(90%,auto);
+        @include bordr(10px);
+        #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+        @include margin(10%,0,0,5%);
+        #{$bg}:lighten(white,10);
+        
+        .title-catego{
+            @include margin(2%,0%,0%,0%);
+            #{$fs}:1.9rem;
+            #{$fw}:bold;
+            #{$col}:#156;
+        }
+        .form-res{
+            @include flex(flex,column,center,center);
+        }
+        .inputsec{
+            @include flex(flex,column,center,center);
+            @include margin(0,0,0,0);
+    
+            input{
+                @include taille(300px,30px);
+                #{$text}:center;
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                @include bordr(10px);
+                outline-style: none;
+                @include margin(10%,0,0,0);
+            }
+            .search{
+                @include margin(10%,0,10%,0);
+                @include taille(300px,30px);
+                @include bordr(10px);
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(212, 212, 212);
+                #{$bg}:lighten(orange,10);
+                cursor: pointer;
+                #{$fw}:bold;
+            }
+            .selection{
+                @include taille(300px,30px);
+                #{$text}:center;
+                #{$bord}:none;
+                #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                @include bordr(10px);
+                outline-style: none;
+                @include margin(10%,0,0,0);
+            }
+        }
+    }
+    
+    .sec3{
+        @include flex(flex,column,center,center);
+        @include margin(100%,0,0,0);
+        .title{
+            #{$text}:center;
+    
+            .title-fat{
+                #{$fs}:2rem;
+                @include margin(10%,0,0,0);
+                #{$col}:black;
+                font-family: edosz;
+            }
+        }
+    
+        .difere{
+            @include flex(flex,column,space-around,center);
+            .dif{
+                @include taille(350px,200px);
+                @include margin(5%,5%,5%,5%);
+                @include padding(3%,0,0,0);
+                #{$text}:center;
+                @include bordr(10px);
+                #{$trans}:1s;
+                #{$bx}:0 0 10px 0 rgb(214, 214, 214);
+                cursor: pointer;
+    
+                .ico{
+                    #{$fs}:4rem;
+                    #{$col}:orange; 
+                    @include margin(10%,0,0,0);
+                }
+                .title-ico{
+                    #{$fs}:1.2rem;
+                }
+            }
+            .dif:hover{
+                #{$col}:black;
+                #{$trans}:1s;
+                #{$bg}:lighten(orange,10);
+    
+                .ico{
+                    #{$fs}:4rem;
+                    #{$col}:black; 
+                }
+    
+            }
+        }
+    }
+    
+    .sec4{
+        @include padding(10%,0,4%,0);
+        .titles4{
+            #{$text}:center;
+            .que{
+                #{$fs}:2rem;
+            }
+            .p-que{
+                #{$fs}:1rem;
+                @include margin(3%,0,10%,0);
+                #{$col}:grey;
+            }
+        }
+    
+        .diver{
+            @include flex(flex,column,space-around,center);
+            @include taille(100%,auto);
+            @include margin(0,0,0,0);
+    
+            .s-diver{
+                #{$text}:center;
+                @include taille(90%,300px);
+                @include margin(2%,0,5%,0%);
+                @include padding(20%,0,2%,0);
+                #{$bg}:transparent;
+                #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+                @include bordr(10px);
+    
+    
+                .icondiv{
+                    #{$fs}:50px;
+                    @include margin(-5%,0,2%,0);
+                    #{$col}:orange;
+                }
+                .title-div{
+                    @include margin(3%,0,2%,0);
+                    #{$fs}:1.5rem;
+                }
+                .p-dive{
+                    @include padding(4%,0,2%,0);
+                    #{$fs}:1rem;
+                    #{$text}:center;
+                    #{$col}:grey;
+                }
+    
+            }
+            
+        }
+        .entre{
+            #{$text}:center;
+            @include margin(10%,0,10%,0);
+    
+            .title-ent{
+                #{$fs}:2rem;
+                @include margin(2%,0,1%,0);
+            }
+            .p-ent{
+                #{$fs}:1rem;
+                #{$col}:grey;
+                @include margin(0,0,4%,0);
+            }
+            .decov{
+                text-decoration: none;
+                #{$col}:black;
+                #{$fw}:bold;
+                @include bordr(10px);
+                @include margin(10%,0,3%,0);
+                #{$bg}:lighten(orange,10);
+                @include padding(1%,2%,1%,2%);
+            }
+        }
+    }
+    
+    .sec5{
+        @include flex(flex,column,space-around,center);
+        @include bgimg('../image/bg1.jpg', rgba(0,0,0,0.6),multiply);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include padding(5%,0,5%,0);
+    
+        .titles5{
+            #{$fs}:2rem;
+            @include margin(5%,0,2%,0);
+            #{$col}:white;
+        }
+    
+        .cont{
+            @include flex(flex,column,space-around,center);
+            @include padding(2%,0,0,0);
+            @include taille(95%,auto);
+            @include margin(0,0,0,2.5%);
+    
+            .conts5{
+                @include taille(95%,300px);
+                #{$bx}:0 0 4px 0 rgb(201, 201, 201);
+                #{$text}:center;
+                @include padding(3%,0,0,0);
+                @include margin(0,0,3%,-2%);
+                #{$borderp}:40px 0 40px 0;  
+                cursor: pointer;
+                #{$bg}:lighten(white,10);
+                
+                .fontaw{
+                    #{$fs}:2.5rem;  
+                    @include taille(90px,90px);
+                    @include bordr(50%);
+                    #{$bg}:lighten(orange,10);
+                    #{$text}:center;
+                    @include padding(10%,0,0,0);
+                }
+    
+                .titlec5{
+                    #{$fs}:1.5rem;
+                    #{$col}:rgb(0, 0, 0);
+                }
+                .pcont5{
+                    #{$fs}:1rem;
+                    #{$col}:grey; 
+                    @include margin(5%,0,0,0);
+                    #{$text}:center;
+                }
+    
+    
+            }
+        }
+    }
+    
+    .sec6{
+        @include flex(flex,column,space-around,center);
+        @include padding(0,0,10%,0);
+    
+        .categorie{
+            .titlecatego{
+                #{$fs}:2rem;
+                @include margin(5%,0,15%,0);
+                #{$text}:center;
+            }
+        }
+    
+        .catego{
+            @include flex(flex,column,space-around,center);
+            @include taille(95%,auto);
+            @include margin(0,0,0,2.5%);
+    
+            .contcate{
+                #{$text}:center;
+                @include taille(95%,350Px);
+                #{$bg}:lighten(black,0);
+                #{$borderp}:40px 0 40px 0; 
+                cursor: pointer; 
+                #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+                #{$pos}:relative;
+                z-index: 1;
+                overflow: hidden;
+                #{$trans}:1s;
+                @include margin(10%,0,0,0);
+    
+                .fontcat{
+                    #{$fs}:3.5rem;
+                    #{$col}:orange;
+                    @include taille(90px,90px);
+                    @include bordr(50%);
+                    #{$bg}:rgb(0, 0, 0);
+                    @include margin(2%,0,0,0);
+                    @include padding(6%,0,0,0);
+                    z-index: 1;
+                }
+                .titlecar{
+                    @include margin(2%,0,0,0);
+                    #{$fs}:1rem;
+                    #{$col}:white;
+                }
+                .pcatego{
+                    @include padding(10%,0,0,10%);
+                    #{$col}:rgb(255, 255, 255);
+                    #{$text}:left;
+                    #{$fs}:0.7rem;
+                }
+               
+                
+            }
+    
+            .contcate::before{
+                content: "";
+                #{$text}:center;
+                @include taille(100%,350Px);
+                #{$bg}:lighten(orange,0);
+                #{$borderp}:0px 40px 0px 40px; 
+                cursor: pointer; 
+                #{$bx}:0 0 4px 0 rgb(0, 0, 0);
+                #{$pos}:absolute;
+                transform: translateY(-120%);
+                top: 0;
+                left: 0;
+                z-index: -1;
+    
+    
+                
+            }
+            .contcate:hover:before {
+                transform: translateY(0%);
+                transition: 1s;
+            }
+    
+    
+        }
+    }
+    
+    footer{
+        @include flex(flex,column,space-around,center);
+        @include taille(100%,auto);
+        #{$bg}:lighten(black,10);
+        @include padding(5%,0,3%,0);
+    
+        .secfoot{
+            @include taille(100%,auto);
+            #{$text}:center;
+            @include margin(10%,0,0,0);
+            @include padding(0,0,5%,0);
+            border-bottom: 2px solid grey;
+    
+    
+            .titlefoot{
+                #{$col}:white;
+                #{$fs}:1.5rem;
+            }
+            .pfoot{
+                #{$fs}:1rem;
+                #{$col}:white;
+                @include margin(10%,0,0,0);
+            }
+    
+            .nav-foot{
+                @include texte(none,none,white);
+                @include margin(0%,0,0,0);
+                @include padding(2%,0,0,0);
+                #{$fs}:1rem;
+            }
+            .link-foot{
+                @include texte(none,none,white);
+                @include padding(5%,0,0,0);
+                #{$trans}:0.5s;
+            }
+            .link-foot:hover{
+                #{$col}:orange;
+                #{$trans}:0.5s;
+            }
+            .mail{
+                @include taille(140px,25px);
+                @include margin(10%,0,0,0);
+                @include bordr(10px);
+                outline: none;
+                @include padding(0,20%,0,10%);
+                #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+                border: none;
+            }
+            .sub{
+                @include margin(30px,0,0,1%);
+                border: none;
+                #{$bg}:orange;
+                cursor: pointer;
+                @include taille(140px,25px);
+                @include bordr(10px);
+                #{$fs}:1.2rem;
+                
+            }
+            .sub:hover{
+                #{$col}:rgb(255, 255, 255);
+            }
+            .fontfoot{
+                #{$col}:orange;
+            }
+        }
+    }
+}
+

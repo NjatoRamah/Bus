@@ -1,0 +1,1399 @@
+@import 'fonction.scss';
+@import 'variable.scss';
+@font-face {
+    font-family:butler;
+    src: url('../font/Butler_Regular.otf');
+}
+
+*{
+    #{$marg}:0;
+    #{$pad}:0;
+    box-sizing: border-box;
+    font-family: butler;
+    font-weight: 500;
+    font-style: normal;
+}
+body {
+    font-family:butler;
+    #{$pos}:relative;
+    z-index: 0;
+    &.mis{
+        &:before{
+            content:" ";
+            #{$pos}:absolute;
+            #{$top}:0;
+            @include taille(100%,100%);
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+    }
+}
+header{
+    @include flex(flex,column,space-around,center);
+    @include taille(auto,auto);
+
+    .logo-div{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+
+        .logo{
+            #{$fw}:bold;
+            #{$col}:black;
+            #{$fs}:2.5rem;
+            @include padding(3%,15%,0%,0%);
+            @include margin(0,0,0,10%);
+            cursor: pointer;
+            font-family: edosz;
+            
+            .brouse{
+                #{$col}:orange;
+                #{$fs}:20px;
+            }
+        }
+
+        .con{
+            @include margin(3%,0,0,30%);
+            .connect{
+                @include texte(none,none,black);
+                #{$fw}:bold;
+                @include taille(200Px,auto);
+                @include padding(5px,20px,5px,20px);
+                #{$text}:right;
+                #{$bg}:transparent;
+                @include bordr(10px);
+                #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                #{$trans}:1s;
+            }
+            .connect:hover{
+                #{$trans}:1s;
+                #{$bg}:orange;
+            }
+        }
+
+        .nav{
+            .nav1{
+                @include taille(20px,2px);
+                #{$bg}:black;
+                @include margin(2px,0,0,0);
+                #{$disp}:none;
+            }
+        }
+
+
+    }
+
+ 
+
+    .nav-logo{
+        @include flex(flex,row,center,center);
+        @include texte(none,none,blue);
+        @include margin(3%,0,0,0);
+        @include padding(1%,2%,1%,2%);
+        #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+        @include bordr(10px);
+        font-family: butler;
+
+
+        .nav-item, .nav-link{
+         @include margin(0,0,0px,10px);
+         @include padding(6px,5px,6px,0px);
+         @include texte(none,none,black);
+         font-family:butler;   
+         #{$fs}:0.9rem;
+         #{$fw}:bold;
+         #{$trans}:0.5s;
+        }
+        
+        .nav-item:hover{
+            #{$bg}:lighten(orange,10);
+            @include padding(6px,5px,6px,0px);
+            @include bordr(10px);
+        }
+        .menu{
+            @include taille(auto,auto);
+            #{$bg}:lighten(orange,10);
+            @include margin(5px,0,0,10px);
+            @include padding(0px,4px,0px,4px);
+        }
+        .sous-menu .menu{
+            #{$pos}:fixed;
+            #{$disp}:none;
+            transition: 2s;
+            @include bordr(5px);
+            @include padding(0px,2px,0px,2px);
+            font-family: butler;
+
+        }
+        .sous-menu:hover .menu{
+            #{$disp}:block;
+           
+        }
+        .nav-item1{
+            @include texte(none,none,black);
+            @include margin(5%,0px,5%,0px);
+            @include padding(5px,0px,5px,0px);
+            #{$text}:start;
+            #{$trans}:1s;   
+        }
+        .nav-item1:hover .nav-link{
+            #{$trans}:1s;   
+            border-bottom: 2px solid black;
+        }
+    
+        
+    }
+
+    .nav-small{
+        #{$disp}:none;
+        #{$bg}:aliceblue;
+        @include padding(1%,3%,1%,3%);
+        transform: translate(-100%);
+        .active{
+           transform: translate(0%);
+        }
+        .smallresp{
+            .nav-item1 , .nav-link1{
+                @include texte(none,none,black);
+                @include margin(8%,0,0,0);
+                #{$fw}:bold;
+                #{$fs}:1rem;
+                font-family:butler;
+            }
+
+            .nav-link1:hover{
+                border-bottom: 2px solid orange;
+                #{$trans}:0.5s;
+            }
+        }
+
+
+    }
+    
+}
+// sec1
+.sec1{
+    @include bgimg('../image/toyota.jpg',rgba(0,0,0,0.6),multiply);
+    background-repeat: no-repeat;
+    background-size:cover;   
+    @include taille(100%,200px);
+    @include margin(2%,0%,0%,0%);
+    .title-sec{
+        #{$text}:center;
+        @include padding(6%,0%,0%,0%);
+        #{$col}:white;
+        #{$fs}:2.5rem;
+        animation: anim 1s linear 3s;
+    }
+    @keyframes anim{
+        from{
+            transform: translateX(100%);
+        }
+        to{
+            transform:translateX(0%);
+        }
+    }
+}
+
+// sec2
+.sec2{
+    @include flex(flex,column,center,center);
+    @include taille(90%,auto);
+    @include margin(0,0,0,2%);
+
+
+    .com{
+        #{$fs}:1.2rem;
+        #{$col}:orange;
+        @include margin(2%,0,2%,0);
+    }
+    .quest{
+        #{$fs}:2.5rem;
+        @include margin(0,0,2%,0);
+    }
+    .cont{
+        #{$text}:center;
+        #{$fs}:1rem;
+    }
+
+}
+
+// sec3
+
+.sec3{
+    @include flex(flex,row,space-around,center);
+    @include taille(90%,auto);
+    @include margin(0,0,0,5%);
+    .contcat{
+        @include taille(100%,auto);
+        #{$text}:center;
+        @include padding(2%,0,2%,0);
+    }
+    .iconcon{
+        #{$fs}:2.5rem;
+        #{$col}:orange;
+        #{$text}:center;
+        @include padding(20%,0,5%,0);
+    }
+    .add{
+        #{$fs}:1.5rem;
+        #{$text}:center;
+        @include margin(2%,0,2%,0);
+    }
+    .pAdd{
+        @include padding(0,0,20%,0);
+    }
+}
+
+// sec4
+
+.sec4{
+    @include taille(90%,auto);
+    @include margin(0,0,5%,5%);
+    #{$text}:center;
+
+
+    .formco{
+        @include taille(100%,auto);
+        #{$bg}:lighten(orange,20);
+        @include padding(4%,0,4%,0);
+        @include bordr(10px);
+
+        form{
+            @include flex(flex,row,space-around,center);
+
+            input{
+                @include taille(300px,35px);
+                @include margin(5%,0,2%,0);
+                #{$text}:center;
+                border: none;
+                outline: none;
+                @include bordr(10px);
+            }
+            button{
+                @include taille(300px,40px);
+                @include margin(5%,0,2%,0);
+                border: none;
+                @include bordr(10px);
+                #{$fs}:1rem;
+                #{$col}:white;
+                #{$bg}:orange;
+                #{$bx}:0 0 3px 0 rgb(212, 138, 1);
+                #{$trans}:1s;
+
+                &:hover{
+                    #{$bg}:white;
+                    #{$col}:orange;
+                    cursor: pointer;
+                }
+            }
+
+            textarea{
+                @include taille(500px,200px);
+                @include margin(5%,0,0,0);
+                @include padding(2%,0,2%,3%);
+                @include bordr(10px);
+                border: none;
+                outline: inherit;
+                resize: none;
+            }
+        }
+
+
+
+    }
+}
+// footer
+footer{
+    @include flex(flex,row,space-around,center);
+    @include taille(100%,auto);
+    #{$bg}:lighten(black,10);
+    @include padding(5%,0,3%,0);
+
+    .secfoot{
+        @include taille(250px,300px);
+
+
+        .titlefoot{
+            #{$col}:white;
+        }
+        .pfoot{
+            #{$fs}:1rem;
+            #{$col}:white;
+            @include margin(10%,0,0,0);
+        }
+
+        .nav-foot{
+            @include texte(none,none,white);
+            @include margin(0%,0,0,0);
+            @include padding(5%,0,0,0);
+            #{$fs}:1rem;
+        }
+        .link-foot{
+            @include texte(none,none,white);
+            @include padding(5%,0,0,0);
+            #{$trans}:0.5s;
+        }
+        .link-foot:hover{
+            #{$col}:orange;
+            #{$trans}:0.5s;
+        }
+        .mail{
+            @include taille(200px,30px);
+            @include margin(10%,0,0,0);
+            @include bordr(10px);
+            outline: none;
+            @include padding(0,20%,0,10%);
+            #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+            border: none;
+        }
+        .sub{
+            @include margin(0,0,0,-15%);
+            border: none;
+            #{$bg}:white;
+            cursor: pointer;
+            
+        }
+        .sub:hover{
+            #{$col}:orange;
+        }
+        .fontfoot{
+            #{$col}:orange;
+        }
+    }
+}
+
+@media screen and (max-width:1024px){
+    header{
+        @include flex(flex,column,space-around,center);
+        @include taille(auto,auto);
+    
+        .logo-div{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .logo{
+                #{$fw}:bold;
+                #{$col}:black;
+                #{$fs}:2.5rem;
+                @include padding(3%,15%,0%,0%);
+                @include margin(0,0,0,5%);
+                cursor: pointer;
+                font-family: edosz;
+                
+                .brouse{
+                    #{$col}:orange;
+                    #{$fs}:20px;
+                }
+            }
+    
+            .con{
+                @include margin(3%,0,0,30%);
+                .connect{
+                    @include texte(none,none,black);
+                    #{$fw}:bold;
+                    @include taille(200Px,auto);
+                    @include padding(5px,20px,5px,20px);
+                    #{$text}:right;
+                    #{$bg}:transparent;
+                    @include bordr(10px);
+                    #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                    #{$trans}:1s;
+                }
+                .connect:hover{
+                    #{$trans}:1s;
+                    #{$bg}:orange;
+                }
+            }
+    
+        }
+    
+     
+    
+        .nav-logo{
+            @include flex(flex,row,center,center);
+            @include texte(none,none,blue);
+            @include margin(3%,0,0,0);
+            @include padding(1%,2%,1%,2%);
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+    
+    
+            .nav-item, .nav-link{
+             @include margin(0,0,0px,10px);
+             @include padding(6px,5px,6px,0px);
+             @include texte(none,none,black);
+             font-family:   Helvetica;   
+             #{$fs}:0.9rem;
+             #{$fw}:bold;
+             #{$trans}:1s;
+            }
+            
+            .nav-item:hover{
+                #{$bg}:lighten(orange,10);
+                @include padding(6px,5px,6px,0px);
+                @include bordr(10px);
+            }
+            .menu{
+                @include taille(auto,auto);
+                #{$bg}:lighten(orange,10);
+                @include margin(5px,0,0,10px);
+                @include padding(0px,4px,0px,4px);
+            }
+            .sous-menu .menu{
+                #{$pos}:fixed;
+                #{$disp}:none;
+                transition: 2s;
+                @include bordr(5px);
+                @include padding(0px,2px,0px,2px);
+    
+            }
+            .sous-menu:hover .menu{
+                #{$disp}:block;
+               
+            }
+            .nav-item1{
+                @include texte(none,none,black);
+                @include margin(5%,0px,5%,0px);
+                @include padding(5px,0px,5px,0px);
+                #{$text}:start;
+                #{$trans}:1s;   
+            }
+            .nav-item1:hover .nav-link{
+                #{$trans}:1s;   
+                border-bottom: 2px solid black;
+            }
+        
+            
+        }
+        
+    }
+    // sec1
+// sec1
+.sec1{
+    @include bgimg('../image/toyota.jpg',rgba(0,0,0,0.6),multiply);
+    background-repeat: no-repeat;
+    background-size:cover;   
+    @include taille(100%,200px);
+    @include margin(2%,0%,0%,0%);
+    .title-sec{
+        #{$text}:center;
+        @include padding(6%,0%,0%,0%);
+        #{$col}:white;
+        #{$fs}:2.5rem;
+        animation: anim 1s linear 3s;
+    }
+    @keyframes anim{
+        from{
+            transform: translateX(100%);
+        }
+        to{
+            transform:translateX(0%);
+        }
+    }
+}
+
+// sec2
+.sec2{
+    @include flex(flex,column,center,center);
+    @include taille(90%,auto);
+    @include margin(0,0,0,2%);
+
+
+    .com{
+        #{$fs}:1.2rem;
+        #{$col}:orange;
+        @include margin(2%,0,2%,0);
+    }
+    .quest{
+        #{$fs}:2.5rem;
+        @include margin(0,0,2%,0);
+    }
+    .cont{
+        #{$text}:center;
+        #{$fs}:1rem;
+    }
+
+}
+
+// sec3
+
+.sec3{
+    @include flex(flex,row,space-around,center);
+    @include taille(90%,auto);
+    @include margin(0,0,0,5%);
+    .contcat{
+        @include taille(100%,auto);
+        #{$text}:center;
+        @include padding(2%,0,2%,0);
+    }
+    .iconcon{
+        #{$fs}:2.5rem;
+        #{$col}:orange;
+        #{$text}:center;
+        @include padding(20%,0,5%,0);
+    }
+    .add{
+        #{$fs}:1.5rem;
+        #{$text}:center;
+        @include margin(2%,0,2%,0);
+    }
+    .pAdd{
+        @include padding(0,0,20%,0);
+    }
+}
+
+// sec4
+
+.sec4{
+    @include taille(90%,auto);
+    @include margin(0,0,5%,5%);
+    #{$text}:center;
+
+
+    .formco{
+        @include taille(100%,auto);
+        #{$bg}:lighten(orange,20);
+        @include padding(4%,0,4%,0);
+        @include bordr(10px);
+
+        form{
+            @include flex(flex,row,space-around,center);
+
+            input{
+                @include taille(300px,35px);
+                @include margin(5%,0,2%,0);
+                #{$text}:center;
+                border: none;
+                outline: none;
+                @include bordr(10px);
+            }
+            button{
+                @include taille(300px,40px);
+                @include margin(5%,0,2%,0);
+                border: none;
+                @include bordr(10px);
+                #{$fs}:1rem;
+                #{$col}:white;
+                #{$bg}:orange;
+                #{$bx}:0 0 3px 0 rgb(212, 138, 1);
+                #{$trans}:1s;
+
+                &:hover{
+                    #{$bg}:white;
+                    #{$col}:orange;
+                    cursor: pointer;
+                }
+            }
+
+            textarea{
+                @include taille(500px,200px);
+                @include margin(5%,0,0,0);
+                @include padding(2%,0,2%,3%);
+                @include bordr(10px);
+                border: none;
+                outline: inherit;
+                resize: none;
+            }
+        }
+
+
+
+    }
+}
+    
+    footer{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+        #{$bg}:lighten(black,10);
+        @include padding(5%,0,3%,0);
+    
+        .secfoot{
+            @include taille(200px,300px);
+    
+    
+            .titlefoot{
+                #{$col}:white;
+            }
+            .pfoot{
+                #{$fs}:1rem;
+                #{$col}:white;
+                @include margin(10%,0,0,0);
+            }
+    
+            .nav-foot{
+                @include texte(none,none,white);
+                @include margin(0%,0,0,0);
+                @include padding(5%,0,0,0);
+                #{$fs}:1rem;
+            }
+            .link-foot{
+                @include texte(none,none,white);
+                @include padding(5%,0,0,0);
+                #{$trans}:0.5s;
+            }
+            .link-foot:hover{
+                #{$col}:orange;
+                #{$trans}:0.5s;
+            }
+            .mail{
+                @include taille(200px,30px);
+                @include margin(10%,0,0,0);
+                @include bordr(10px);
+                outline: none;
+                @include padding(0,20%,0,10%);
+                #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+            }
+            .sub{
+                @include margin(27px,0,0,1%);
+                border: none;
+                #{$bg}:orange;
+                cursor: pointer;
+                @include taille(200px,30px);
+                @include bordr(10px);
+                #{$fs}:1.3rem;
+                
+            }
+            .sub:hover{
+                #{$col}:rgb(255, 255, 255);
+            }
+            .fontfoot{
+                #{$col}:orange;
+            }
+        }
+    }
+    
+}
+@media screen and (max-width:768px) {
+    header{
+        @include flex(flex,column,space-around,center);
+        @include taille(auto,auto);
+    
+        .logo-div{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .logo{
+                #{$fw}:bold;
+                #{$col}:black;
+                #{$fs}:2rem;
+                @include padding(3%,15%,0%,0%);
+                @include margin(0,0,0,0%);
+                cursor: pointer;
+                font-family: edosz;
+                
+                .brouse{
+                    #{$col}:orange;
+                    #{$fs}:20px;
+                }
+            }
+    
+            .con{
+                @include margin(3%,0,0,20%);
+                .connect{
+                    @include texte(none,none,black);
+                    #{$fw}:bold;
+                    @include taille(200Px,auto);
+                    @include padding(5px,20px,5px,20px);
+                    #{$text}:right;
+                    #{$bg}:transparent;
+                    @include bordr(10px);
+                    #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                    #{$trans}:1s;
+                }
+                .connect:hover{
+                    #{$trans}:1s;
+                    #{$bg}:orange;
+                }
+            }
+    
+        }
+    
+     
+    
+        .nav-logo{
+            @include flex(flex,row,center,center);
+            @include texte(none,none,blue);
+            @include margin(3%,0,0,0);
+            @include padding(1%,2%,1%,2%);
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+    
+    
+            .nav-item, .nav-link{
+             @include margin(0,0,0px,10px);
+             @include padding(6px,5px,6px,0px);
+             @include texte(none,none,black);
+             font-family:   Helvetica;   
+             #{$fs}:0.6rem;
+             #{$fw}:bold;
+             #{$trans}:1s;
+            }
+            
+            .nav-item:hover{
+                #{$bg}:lighten(orange,10);
+                @include padding(6px,5px,6px,0px);
+                @include bordr(10px);
+            }
+            .menu{
+                @include taille(auto,auto);
+                #{$bg}:lighten(orange,10);
+                @include margin(5px,0,0,10px);
+                @include padding(0px,4px,0px,4px);
+            }
+            .sous-menu .menu{
+                #{$pos}:fixed;
+                #{$disp}:none;
+                transition: 2s;
+                @include bordr(5px);
+                @include padding(0px,2px,0px,2px);
+    
+            }
+            .sous-menu:hover .menu{
+                #{$disp}:block;
+               
+            }
+            .nav-item1{
+                @include texte(none,none,black);
+                @include margin(5%,0px,5%,0px);
+                @include padding(5px,0px,5px,0px);
+                #{$text}:start;
+                #{$trans}:1s;   
+            }
+            .nav-item1:hover .nav-link{
+                #{$trans}:1s;   
+                border-bottom: 2px solid black;
+            }
+        
+            
+        }
+        
+    }
+    .connexion{
+        @include flex(flex,column,space-around,center);
+        @include taille(40%,350px);
+        @include margin(10%,0,0,30%);
+        @include padding(0%,0,10%,0);
+        #{$pos}:absolute;
+        #{$top}:0;
+        #{$bg}:orange;
+        @include bordr(10px);
+        z-index: 1;
+        #{$disp}:none;
+        #{$trans}:5s;
+        &.mis{
+            #{$disp}:block;
+            #{$pos}:fixed;
+        }
+    
+    
+        .divikisa{
+            @include margin(0,0,2%,94%);
+            .ikisa{
+                #{$fs}:1.7rem;
+    
+                &:hover{
+                    #{$col}:red;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .insco{
+            @include margin(0,0,10%,0);
+            #{$text}:center;
+            #{$col}:white;
+        }
+    
+        .social{
+            @include flex(flex,row,center,center);
+    
+    
+            .face{
+                @include taille(140px,30px);
+                @include margin(0,1.8%,0,1.8%);
+                @include padding(1%,0,2%,0);
+                @include bordr(10px);
+                #{$bg}:white;
+                #{$text}:center;
+    
+                a{
+                    @include texte(none,none,black);
+                    #{$bg}:white;
+                    #{$fw}:bold;
+                    #{$fs}:1rem;
+                }
+    
+            }
+    
+    
+        }
+        .seco{
+            .formulaire{
+                #{$text}:center;    
+                @include padding(0%,0,0,0);
+               
+                input{
+                    @include taille(300Px,30px);
+                    @include margin(5%,0,0,0);
+                    #{$text}:center;
+                    outline: none;
+                    @include bordr(10px);
+                    border: none;
+                }
+                button{
+                    @include taille(300Px,30px);
+                    @include margin(5%,0,10%,0);
+                    @include bordr(10px);
+                    #{$bg}:blue;
+                    border: none;
+                    #{$fw}:bold;
+                    #{$col}:white;
+                }
+            }
+        }
+    
+    
+    
+    }
+// sec1
+.sec1{
+    @include bgimg('../image/toyota.jpg',rgba(0,0,0,0.6),multiply);
+    background-repeat: no-repeat;
+    background-size:cover;   
+    @include taille(100%,200px);
+    @include margin(2%,0%,0%,0%);
+    .title-sec{
+        #{$text}:center;
+        @include padding(6%,0%,0%,0%);
+        #{$col}:white;
+        #{$fs}:2.5rem;
+        animation: anim 1s linear 3s;
+    }
+    @keyframes anim{
+        from{
+            transform: translateX(100%);
+        }
+        to{
+            transform:translateX(0%);
+        }
+    }
+}
+
+// sec2
+.sec2{
+    @include flex(flex,column,center,center);
+    @include taille(90%,auto);
+    @include margin(0,0,0,2%);
+
+
+    .com{
+        #{$fs}:1.2rem;
+        #{$col}:orange;
+        @include margin(2%,0,2%,0);
+    }
+    .quest{
+        #{$fs}:2.5rem;
+        @include margin(0,0,2%,0);
+    }
+    .cont{
+        #{$text}:center;
+        #{$fs}:1rem;
+    }
+
+}
+
+// sec3
+
+.sec3{
+    @include flex(flex,row,space-around,center);
+    @include taille(90%,auto);
+    @include margin(0,0,0,5%);
+    .contcat{
+        @include taille(100%,auto);
+        #{$text}:center;
+        @include padding(2%,0,2%,0);
+    }
+    .iconcon{
+        #{$fs}:2.5rem;
+        #{$col}:orange;
+        #{$text}:center;
+        @include padding(20%,0,5%,0);
+    }
+    .add{
+        #{$fs}:1.5rem;
+        #{$text}:center;
+        @include margin(2%,0,2%,0);
+    }
+    .pAdd{
+        @include padding(0,0,20%,0);
+    }
+}
+
+// sec4
+
+.sec4{
+    @include taille(90%,auto);
+    @include margin(0,0,5%,5%);
+    #{$text}:center;
+
+
+    .formco{
+        @include taille(100%,auto);
+        #{$bg}:lighten(orange,20);
+        @include padding(4%,0,4%,0);
+        @include bordr(10px);
+
+        form{
+            @include flex(flex,row,space-around,center);
+
+            input{
+                @include taille(250px,35px);
+                @include margin(5%,0,2%,5%);
+                #{$text}:center;
+                border: none;
+                outline: none;
+                @include bordr(10px);
+            }
+            button{
+                @include taille(250px,40px);
+                @include margin(5%,0,2%,5%);
+                border: none;
+                @include bordr(10px);
+                #{$fs}:1rem;
+                #{$col}:white;
+                #{$bg}:orange;
+                #{$bx}:0 0 3px 0 rgb(212, 138, 1);
+                #{$trans}:1s;
+
+                &:hover{
+                    #{$bg}:white;
+                    #{$col}:orange;
+                    cursor: pointer;
+                }
+            }
+
+            textarea{
+                @include taille(300px,200px);
+                @include margin(5%,0,0,0);
+                @include padding(2%,0,2%,3%);
+                @include bordr(10px);
+                border: none;
+                outline: inherit;
+                resize: none;
+            }
+        }
+
+
+
+    }
+}
+    
+    footer{
+        @include flex(flex,row,space-around,center);
+        @include taille(100%,auto);
+        #{$bg}:lighten(black,10);
+        @include padding(5%,0,3%,0);
+    
+        .secfoot{
+            @include taille(150px,230px);
+    
+    
+            .titlefoot{
+                #{$col}:white;
+                #{$fs}:1.2rem;
+            }
+            .pfoot{
+                #{$fs}:1rem;
+                #{$col}:white;
+                @include margin(10%,0,0,0);
+            }
+    
+            .nav-foot{
+                @include texte(none,none,white);
+                @include margin(0%,0,0,0);
+                @include padding(5%,0,0,0);
+                #{$fs}:1rem;
+            }
+            .link-foot{
+                @include texte(none,none,white);
+                @include padding(5%,0,0,0);
+                #{$trans}:0.5s;
+            }
+            .link-foot:hover{
+                #{$col}:orange;
+                #{$trans}:0.5s;
+            }
+            .mail{
+                @include taille(140px,25px);
+                @include margin(10%,0,0,0);
+                @include bordr(10px);
+                outline: none;
+                @include padding(0,20%,0,10%);
+                #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+            }
+            .sub{
+                @include margin(27px,0,0,1%);
+                border: none;
+                #{$bg}:orange;
+                cursor: pointer;
+                @include taille(140px,25px);
+                @include bordr(10px);
+                #{$fs}:1.2rem;
+                
+            }
+            .sub:hover{
+                #{$col}:rgb(255, 255, 255);
+            }
+            .fontfoot{
+                #{$col}:orange;
+            }
+        }
+    }
+    
+}
+@media screen and (max-width:425px) {
+    header{
+        @include flex(flex,column,space-around,center);
+        @include taille(auto,auto);
+        overflow: hidden;
+        @include margin(0,0,0,0);
+    
+        .logo-div{
+            @include flex(flex,row,space-around,center);
+            @include taille(100%,auto);
+    
+            .logo{
+                #{$fw}:bold;
+                #{$col}:black;
+                #{$fs}:2rem;
+                @include padding(3%,15%,0%,0%);
+                @include margin(0,0,0,0%);
+                cursor: pointer;
+                font-family: edosz;
+                
+                .brouse{
+                    #{$col}:orange;
+                    #{$fs}:20px;
+                }
+            }
+    
+            .con{
+                @include margin(3%,0,0,20%);
+                #{$disp}:none;
+                .connect{
+                    @include texte(none,none,black);
+                    #{$fw}:bold;
+                    @include taille(200Px,auto);
+                    @include padding(5px,20px,5px,20px);
+                    #{$text}:right;
+                    #{$bg}:transparent;
+                    @include bordr(10px);
+                    #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+                    #{$trans}:1s;
+                }
+                .connect:hover{
+                    #{$trans}:1s;
+                    #{$bg}:orange;
+                }
+            }
+
+            .nav{
+                .nav1{
+                    @include taille(20px,2px);
+                    #{$bg}:black;
+                    @include margin(2px,0,0,0);
+                    #{$disp}:block;
+                }
+            }
+    
+        }
+    
+     
+    
+        .nav-logo{
+            @include flex(flex,row,center,center);
+            @include texte(none,none,blue);
+            @include margin(3%,0,0,0);
+            @include padding(1%,2%,1%,2%);
+            #{$bx}:0 0 3px 0 rgb(196, 196, 196);
+            @include bordr(10px);
+            #{$disp}:none;
+    
+    
+            .nav-item, .nav-link{
+             @include margin(0,0,0px,10px);
+             @include padding(6px,5px,6px,0px);
+             @include texte(none,none,black);
+             font-family:   Helvetica;   
+             #{$fs}:0.6rem;
+             #{$fw}:bold;
+             #{$trans}:1s;
+            }
+            
+            .nav-item:hover{
+                #{$bg}:lighten(orange,10);
+                @include padding(6px,5px,6px,0px);
+                @include bordr(10px);
+            }
+            .menu{
+                @include taille(auto,auto);
+                #{$bg}:lighten(orange,10);
+                @include margin(5px,0,0,10px);
+                @include padding(0px,4px,0px,4px);
+            }
+            .sous-menu .menu{
+                #{$pos}:fixed;
+                #{$disp}:none;
+                transition: 2s;
+                @include bordr(5px);
+                @include padding(0px,2px,0px,2px);
+    
+            }
+            .sous-menu:hover .menu{
+                #{$disp}:block;
+               
+            }
+            .nav-item1{
+                @include texte(none,none,black);
+                @include margin(5%,0px,5%,0px);
+                @include padding(5px,0px,5px,0px);
+                #{$text}:start;
+                #{$trans}:1s;   
+            }
+            .nav-item1:hover .nav-link{
+                #{$trans}:1s;   
+                border-bottom: 2px solid black;
+            }
+        
+            
+        }
+        
+        
+    .nav-small{
+        #{$disp}:block;
+        #{$bg}:lighten(orange,10);
+        @include padding(1%,3%,1%,3%);
+        transform: translateX(150%);
+        #{$trans}:0.5s ease;
+        @include bordr(10px);
+        &.active{
+            transform: translateX(41%);
+
+        }
+
+        .smallresp{
+            .nav-item1 , .nav-link1{
+                @include texte(none,none,black);
+                @include margin(8%,0,0,0);
+                #{$fw}:bold;
+                #{$fs}:1rem;
+            }
+
+            .nav-link1:hover{
+                border-bottom: 2px solid rgb(255, 255, 255);
+                #{$trans}:0.5s;
+            }
+        }
+
+
+    }
+    }
+    .sec1{
+        @include bgimg('../image/toyota.jpg',rgba(0,0,0,0.6),multiply);
+        background-repeat: no-repeat;
+        background-size:cover;   
+        @include taille(100%,200px);
+        @include margin(-100%,0%,0,0%);
+        .title-sec{
+            #{$text}:center;
+            @include padding(20%,0%,0%,0%);
+            #{$col}:white;
+            #{$fs}:2.5rem;
+            animation: anim 1s linear 3s;
+        }
+        @keyframes anim{
+            from{
+                transform: translateX(100%);
+            }
+            to{
+                transform:translateX(0%);
+            }
+        }
+    }
+    
+    // sec2
+    .sec2{
+        @include flex(flex,column,center,center);
+        @include taille(90%,auto);
+        @include margin(0,0,0,2%);
+    
+    
+        .com{
+            #{$fs}:1.2rem;
+            #{$col}:orange;
+            @include margin(5%,0,4%,0);
+            font-family: butler;
+        }
+        .quest{
+            #{$fs}:2.5rem;
+            @include margin(0,0,2%,0);
+        }
+        .cont{
+            #{$text}:left;
+            #{$fs}:1rem;
+            @include margin(0,0,0,10%);
+    
+        }
+    
+    }
+    
+    // sec3
+    
+    .sec3{
+        @include flex(flex,column,space-around,center);
+        @include taille(90%,auto);
+        @include margin(0,0,0,5%);
+        .contcat{
+            @include taille(100%,auto);
+            #{$text}:center;
+            @include padding(1%,0,1%,0);
+        }
+        .iconcon{
+            #{$fs}:2.5rem;
+            #{$col}:orange;
+            #{$text}:center;
+            @include padding(20%,0,5%,0);
+        }
+        .add{
+            #{$fs}:1.5rem;
+            #{$text}:center;
+            @include margin(2%,0,2%,0);
+        }
+        .pAdd{
+            @include padding(0,0,20%,0);
+        }
+    }
+    .sec4{
+        @include taille(90%,auto);
+        @include margin(0,0,5%,5%);
+        #{$text}:center;
+    
+    
+        .formco{
+            @include taille(100%,auto);
+            #{$bg}:lighten(orange,20);
+            @include padding(4%,0,4%,0);
+            @include bordr(10px);
+    
+            form{
+                @include flex(flex,column,space-around,center);
+    
+                input{
+                    @include taille(300px,35px);
+                    @include margin(5%,0,2%,0);
+                    #{$text}:center;
+                    border: none;
+                    outline: none;
+                    @include bordr(10px);
+                }
+                button{
+                    @include taille(300px,40px);
+                    @include margin(5%,0,2%,0);
+                    border: none;
+                    @include bordr(10px);
+                    #{$fs}:1rem;
+                    #{$col}:white;
+                    #{$bg}:orange;
+                    #{$bx}:0 0 3px 0 rgb(212, 138, 1);
+                    #{$trans}:1s;
+    
+                    &:hover{
+                        #{$bg}:white;
+                        #{$col}:orange;
+                        cursor: pointer;
+                    }
+                }
+    
+                textarea{
+                    @include taille(300px,200px);
+                    @include margin(5%,0,0,0);
+                    @include padding(2%,0,5%,3%);
+                    @include bordr(10px);
+                    border: none;
+                    outline: inherit;
+                    resize: none;
+                }
+            }
+    
+    
+    
+        }
+    }
+    footer{
+        @include flex(flex,column,space-around,center);
+        @include taille(100%,auto);
+        #{$bg}:lighten(black,10);
+        @include padding(5%,0,3%,0);
+    
+        .secfoot{
+            @include taille(100%,auto);
+            #{$text}:center;
+            @include margin(10%,0,0,0);
+            @include padding(0,0,5%,0);
+            border-bottom: 2px solid grey;
+    
+    
+            .titlefoot{
+                #{$col}:white;
+                #{$fs}:1.5rem;
+            }
+            .pfoot{
+                #{$fs}:1rem;
+                #{$col}:white;
+                @include margin(10%,0,0,0);
+            }
+    
+            .nav-foot{
+                @include texte(none,none,white);
+                @include margin(0%,0,0,0);
+                @include padding(2%,0,0,0);
+                #{$fs}:1rem;
+            }
+            .link-foot{
+                @include texte(none,none,white);
+                @include padding(5%,0,0,0);
+                #{$trans}:0.5s;
+            }
+            .link-foot:hover{
+                #{$col}:orange;
+                #{$trans}:0.5s;
+            }
+            .mail{
+                @include taille(140px,25px);
+                @include margin(10%,0,0,0);
+                @include bordr(10px);
+                outline: none;
+                @include padding(0,20%,0,10%);
+                #{$bx}:0 0 4px 0 rgb(192, 192, 192);
+                border: none;
+            }
+            .sub{
+                @include margin(30px,0,0,1%);
+                border: none;
+                #{$bg}:orange;
+                cursor: pointer;
+                @include taille(140px,25px);
+                @include bordr(10px);
+                #{$fs}:1.2rem;
+                
+            }
+            .sub:hover{
+                #{$col}:rgb(255, 255, 255);
+            }
+            .fontfoot{
+                #{$col}:orange;
+            }
+        }
+    }
+}
+
